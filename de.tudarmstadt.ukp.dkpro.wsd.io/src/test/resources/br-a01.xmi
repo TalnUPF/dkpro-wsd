@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/wsd/type.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <type:DocumentMetaData xmi:id="13" sofa="6" begin="0" end="402" language="en" documentId="br-a01" collectionId="brown" isLastSegment="false"/>
+    <pos:ART xmi:id="35" sofa="6" begin="1" end="4" PosValue="DT"/>
+    <pos:ART xmi:id="230" sofa="6" begin="42" end="44" PosValue="DT"/>
+    <pos:ART xmi:id="579" sofa="6" begin="109" end="111" PosValue="DT"/>
+    <pos:ART xmi:id="674" sofa="6" begin="129" end="132" PosValue="DT"/>
+    <pos:ART xmi:id="821" sofa="6" begin="162" end="165" PosValue="DT"/>
+    <pos:ART xmi:id="1229" sofa="6" begin="214" end="217" PosValue="DT"/>
+    <pos:ART xmi:id="1306" sofa="6" begin="245" end="250" PosValue="WDT"/>
+    <pos:ART xmi:id="1519" sofa="6" begin="274" end="277" PosValue="DT"/>
+    <pos:ART xmi:id="1655" sofa="6" begin="301" end="304" PosValue="DT"/>
+    <pos:ART xmi:id="1827" sofa="6" begin="326" end="329" PosValue="DT"/>
+    <pos:ART xmi:id="1922" sofa="6" begin="353" end="356" PosValue="DT"/>
+    <pos:ART xmi:id="2035" sofa="6" begin="373" end="376" PosValue="DT"/>
+    <type3:Token xmi:id="41" sofa="6" begin="1" end="4" pos="35"/>
+    <type3:Token xmi:id="64" sofa="6" begin="5" end="29" lemma="53" pos="58"/>
+    <type3:Token xmi:id="123" sofa="6" begin="30" end="34" lemma="112" pos="117"/>
+    <type3:Token xmi:id="182" sofa="6" begin="35" end="41" lemma="171" pos="176"/>
+    <type3:Token xmi:id="236" sofa="6" begin="42" end="44" pos="230"/>
+    <type3:Token xmi:id="259" sofa="6" begin="45" end="58" lemma="248" pos="253"/>
+    <type3:Token xmi:id="313" sofa="6" begin="59" end="61" pos="307"/>
+    <type3:Token xmi:id="336" sofa="6" begin="62" end="69" lemma="325" pos="330"/>
+    <type3:Token xmi:id="390" sofa="6" begin="70" end="72" pos="384"/>
+    <type3:Token xmi:id="413" sofa="6" begin="73" end="79" lemma="402" pos="407"/>
+    <type3:Token xmi:id="472" sofa="6" begin="80" end="96" lemma="461" pos="466"/>
+    <type3:Token xmi:id="531" sofa="6" begin="97" end="105" lemma="520" pos="525"/>
+    <type3:Token xmi:id="585" sofa="6" begin="109" end="111" pos="579"/>
+    <type3:Token xmi:id="608" sofa="6" begin="112" end="120" lemma="597" pos="602"/>
+    <type3:Token xmi:id="662" sofa="6" begin="124" end="128" pos="656"/>
+    <type3:Token xmi:id="680" sofa="6" begin="129" end="132" pos="674"/>
+    <type3:Token xmi:id="703" sofa="6" begin="133" end="147" lemma="692" pos="697"/>
+    <type3:Token xmi:id="762" sofa="6" begin="148" end="158" lemma="751" pos="756"/>
+    <type3:Token xmi:id="827" sofa="6" begin="162" end="165" pos="821"/>
+    <type3:Token xmi:id="850" sofa="6" begin="166" end="170" lemma="839" pos="844"/>
+    <type3:Token xmi:id="909" sofa="6" begin="171" end="178" lemma="898" pos="903"/>
+    <type3:Token xmi:id="968" sofa="6" begin="179" end="183" lemma="957" pos="962"/>
+    <type3:Token xmi:id="1022" sofa="6" begin="184" end="186" pos="1016"/>
+    <type3:Token xmi:id="1045" sofa="6" begin="187" end="191" lemma="1034" pos="1039"/>
+    <type3:Token xmi:id="1104" sofa="6" begin="192" end="195" lemma="1093" pos="1098"/>
+    <type3:Token xmi:id="1163" sofa="6" begin="196" end="208" lemma="1152" pos="1157"/>
+    <type3:Token xmi:id="1217" sofa="6" begin="209" end="213" pos="1211"/>
+    <type3:Token xmi:id="1235" sofa="6" begin="214" end="217" pos="1229"/>
+    <type3:Token xmi:id="1258" sofa="6" begin="218" end="242" lemma="1247" pos="1252"/>
+    <type3:Token xmi:id="1312" sofa="6" begin="245" end="250" pos="1306"/>
+    <type3:Token xmi:id="1335" sofa="6" begin="251" end="254" lemma="1324" pos="1329"/>
+    <type3:Token xmi:id="1394" sofa="6" begin="255" end="263" lemma="1383" pos="1388"/>
+    <type3:Token xmi:id="1453" sofa="6" begin="264" end="270" lemma="1442" pos="1447"/>
+    <type3:Token xmi:id="1507" sofa="6" begin="271" end="273" pos="1501"/>
+    <type3:Token xmi:id="1525" sofa="6" begin="274" end="277" pos="1519"/>
+    <type3:Token xmi:id="1548" sofa="6" begin="278" end="286" lemma="1537" pos="1542"/>
+    <type3:Token xmi:id="1607" sofa="6" begin="292" end="300" lemma="1596" pos="1601"/>
+    <type3:Token xmi:id="1661" sofa="6" begin="301" end="304" pos="1655"/>
+    <type3:Token xmi:id="1684" sofa="6" begin="305" end="311" lemma="1673" pos="1678"/>
+    <type3:Token xmi:id="1738" sofa="6" begin="312" end="315" pos="1732"/>
+    <type3:Token xmi:id="1761" sofa="6" begin="316" end="322" lemma="1750" pos="1755"/>
+    <type3:Token xmi:id="1815" sofa="6" begin="323" end="325" pos="1809"/>
+    <type3:Token xmi:id="1833" sofa="6" begin="326" end="329" pos="1827"/>
+    <type3:Token xmi:id="1856" sofa="6" begin="330" end="345" lemma="1845" pos="1850"/>
+    <type3:Token xmi:id="1910" sofa="6" begin="349" end="352" pos="1904"/>
+    <type3:Token xmi:id="1928" sofa="6" begin="353" end="356" pos="1922"/>
+    <type3:Token xmi:id="1951" sofa="6" begin="357" end="363" lemma="1940" pos="1945"/>
+    <type3:Token xmi:id="2005" sofa="6" begin="364" end="366" pos="1999"/>
+    <type3:Token xmi:id="2023" sofa="6" begin="367" end="372" pos="2017"/>
+    <type3:Token xmi:id="2041" sofa="6" begin="373" end="376" pos="2035"/>
+    <type3:Token xmi:id="2064" sofa="6" begin="377" end="385" lemma="2053" pos="2058"/>
+    <type3:Token xmi:id="2118" sofa="6" begin="386" end="389" pos="2112"/>
+    <type3:Token xmi:id="2141" sofa="6" begin="390" end="399" lemma="2130" pos="2135"/>
+    <type3:Lemma xmi:id="53" sofa="6" begin="29" end="29" value="group"/>
+    <type3:Lemma xmi:id="112" sofa="6" begin="34" end="34" value="say"/>
+    <type3:Lemma xmi:id="171" sofa="6" begin="41" end="41" value="friday"/>
+    <type3:Lemma xmi:id="248" sofa="6" begin="58" end="58" value="investigation"/>
+    <type3:Lemma xmi:id="325" sofa="6" begin="69" end="69" value="atlanta"/>
+    <type3:Lemma xmi:id="402" sofa="6" begin="79" end="79" value="recent"/>
+    <type3:Lemma xmi:id="461" sofa="6" begin="96" end="96" value="primary_election"/>
+    <type3:Lemma xmi:id="520" sofa="6" begin="105" end="105" value="produce"/>
+    <type3:Lemma xmi:id="597" sofa="6" begin="120" end="120" value="evidence"/>
+    <type3:Lemma xmi:id="692" sofa="6" begin="147" end="147" value="irregularity"/>
+    <type3:Lemma xmi:id="751" sofa="6" begin="158" end="158" value="take_place"/>
+    <type3:Lemma xmi:id="839" sofa="6" begin="170" end="170" value="jury"/>
+    <type3:Lemma xmi:id="898" sofa="6" begin="178" end="178" value="far"/>
+    <type3:Lemma xmi:id="957" sofa="6" begin="183" end="183" value="say"/>
+    <type3:Lemma xmi:id="1034" sofa="6" begin="191" end="191" value="term"/>
+    <type3:Lemma xmi:id="1093" sofa="6" begin="195" end="195" value="end"/>
+    <type3:Lemma xmi:id="1152" sofa="6" begin="208" end="208" value="presentment"/>
+    <type3:Lemma xmi:id="1247" sofa="6" begin="242" end="242" value="group"/>
+    <type3:Lemma xmi:id="1324" sofa="6" begin="254" end="254" value="have"/>
+    <type3:Lemma xmi:id="1383" sofa="6" begin="263" end="263" value="overall"/>
+    <type3:Lemma xmi:id="1442" sofa="6" begin="270" end="270" value="charge"/>
+    <type3:Lemma xmi:id="1537" sofa="6" begin="286" end="286" value="election"/>
+    <type3:Lemma xmi:id="1596" sofa="6" begin="300" end="300" value="deserve"/>
+    <type3:Lemma xmi:id="1673" sofa="6" begin="311" end="311" value="praise"/>
+    <type3:Lemma xmi:id="1750" sofa="6" begin="322" end="322" value="thanks"/>
+    <type3:Lemma xmi:id="1845" sofa="6" begin="345" end="345" value="location"/>
+    <type3:Lemma xmi:id="1940" sofa="6" begin="363" end="363" value="manner"/>
+    <type3:Lemma xmi:id="2053" sofa="6" begin="385" end="385" value="election"/>
+    <type3:Lemma xmi:id="2130" sofa="6" begin="399" end="399" value="conduct"/>
+    <pos:O xmi:id="58" sofa="6" begin="5" end="29" PosValue="NNP"/>
+    <pos:O xmi:id="384" sofa="6" begin="70" end="72" PosValue="POS"/>
+    <pos:O xmi:id="1252" sofa="6" begin="218" end="242" PosValue="NNP"/>
+    <pos:O xmi:id="1850" sofa="6" begin="330" end="345" PosValue="NNP"/>
+    <type4:LexicalItemConstituent xmi:id="76" sofa="6" begin="5" end="29" constituentType="wf" id="br-a01.p1.s1.w2"/>
+    <type4:LexicalItemConstituent xmi:id="135" sofa="6" begin="30" end="34" constituentType="wf" id="br-a01.p1.s1.w3"/>
+    <type4:LexicalItemConstituent xmi:id="194" sofa="6" begin="35" end="41" constituentType="wf" id="br-a01.p1.s1.w4"/>
+    <type4:LexicalItemConstituent xmi:id="271" sofa="6" begin="45" end="58" constituentType="wf" id="br-a01.p1.s1.w6"/>
+    <type4:LexicalItemConstituent xmi:id="348" sofa="6" begin="62" end="69" constituentType="wf" id="br-a01.p1.s1.w8"/>
+    <type4:LexicalItemConstituent xmi:id="425" sofa="6" begin="73" end="79" constituentType="wf" id="br-a01.p1.s1.w10"/>
+    <type4:LexicalItemConstituent xmi:id="484" sofa="6" begin="80" end="96" constituentType="wf" id="br-a01.p1.s1.w11"/>
+    <type4:LexicalItemConstituent xmi:id="543" sofa="6" begin="97" end="105" constituentType="wf" id="br-a01.p1.s1.w12"/>
+    <type4:LexicalItemConstituent xmi:id="620" sofa="6" begin="112" end="120" constituentType="wf" id="br-a01.p1.s1.w14"/>
+    <type4:LexicalItemConstituent xmi:id="715" sofa="6" begin="133" end="147" constituentType="wf" id="br-a01.p1.s1.w17"/>
+    <type4:LexicalItemConstituent xmi:id="774" sofa="6" begin="148" end="158" constituentType="wf" id="br-a01.p1.s1.w18"/>
+    <type4:LexicalItemConstituent xmi:id="862" sofa="6" begin="166" end="170" constituentType="wf" id="br-a01.p2.s2.w2"/>
+    <type4:LexicalItemConstituent xmi:id="921" sofa="6" begin="171" end="178" constituentType="wf" id="br-a01.p2.s2.w3"/>
+    <type4:LexicalItemConstituent xmi:id="980" sofa="6" begin="179" end="183" constituentType="wf" id="br-a01.p2.s2.w4"/>
+    <type4:LexicalItemConstituent xmi:id="1057" sofa="6" begin="187" end="191" constituentType="wf" id="br-a01.p2.s2.w6"/>
+    <type4:LexicalItemConstituent xmi:id="1116" sofa="6" begin="192" end="195" constituentType="wf" id="br-a01.p2.s2.w7"/>
+    <type4:LexicalItemConstituent xmi:id="1175" sofa="6" begin="196" end="208" constituentType="wf" id="br-a01.p2.s2.w8"/>
+    <type4:LexicalItemConstituent xmi:id="1270" sofa="6" begin="218" end="242" constituentType="wf" id="br-a01.p2.s2.w11"/>
+    <type4:LexicalItemConstituent xmi:id="1347" sofa="6" begin="251" end="254" constituentType="wf" id="br-a01.p2.s2.w13"/>
+    <type4:LexicalItemConstituent xmi:id="1406" sofa="6" begin="255" end="263" constituentType="wf" id="br-a01.p2.s2.w14"/>
+    <type4:LexicalItemConstituent xmi:id="1465" sofa="6" begin="264" end="270" constituentType="wf" id="br-a01.p2.s2.w15"/>
+    <type4:LexicalItemConstituent xmi:id="1560" sofa="6" begin="278" end="286" constituentType="wf" id="br-a01.p2.s2.w18"/>
+    <type4:LexicalItemConstituent xmi:id="1619" sofa="6" begin="292" end="300" constituentType="wf" id="br-a01.p2.s2.w19"/>
+    <type4:LexicalItemConstituent xmi:id="1696" sofa="6" begin="305" end="311" constituentType="wf" id="br-a01.p2.s2.w21"/>
+    <type4:LexicalItemConstituent xmi:id="1773" sofa="6" begin="316" end="322" constituentType="wf" id="br-a01.p2.s2.w23"/>
+    <type4:LexicalItemConstituent xmi:id="1868" sofa="6" begin="330" end="345" constituentType="wf" id="br-a01.p2.s2.w26"/>
+    <type4:LexicalItemConstituent xmi:id="1963" sofa="6" begin="357" end="363" constituentType="wf" id="br-a01.p2.s2.w29"/>
+    <type4:LexicalItemConstituent xmi:id="2076" sofa="6" begin="377" end="385" constituentType="wf" id="br-a01.p2.s2.w33"/>
+    <type4:LexicalItemConstituent xmi:id="2153" sofa="6" begin="390" end="399" constituentType="wf" id="br-a01.p2.s2.w35"/>
+    <type4:WSDItem xmi:id="82" sofa="6" begin="5" end="29" subjectOfDisambiguation="group" constituents="76" id="br-a01.p1.s1.w2" pos="NOUN"/>
+    <type4:WSDItem xmi:id="141" sofa="6" begin="30" end="34" subjectOfDisambiguation="say" constituents="135" id="br-a01.p1.s1.w3" pos="VERB"/>
+    <type4:WSDItem xmi:id="200" sofa="6" begin="35" end="41" subjectOfDisambiguation="friday" constituents="194" id="br-a01.p1.s1.w4" pos="NOUN"/>
+    <type4:WSDItem xmi:id="277" sofa="6" begin="45" end="58" subjectOfDisambiguation="investigation" constituents="271" id="br-a01.p1.s1.w6" pos="NOUN"/>
+    <type4:WSDItem xmi:id="354" sofa="6" begin="62" end="69" subjectOfDisambiguation="atlanta" constituents="348" id="br-a01.p1.s1.w8" pos="NOUN"/>
+    <type4:WSDItem xmi:id="431" sofa="6" begin="73" end="79" subjectOfDisambiguation="recent" constituents="425" id="br-a01.p1.s1.w10" pos="ADJ"/>
+    <type4:WSDItem xmi:id="490" sofa="6" begin="80" end="96" subjectOfDisambiguation="primary_election" constituents="484" id="br-a01.p1.s1.w11" pos="NOUN"/>
+    <type4:WSDItem xmi:id="549" sofa="6" begin="97" end="105" subjectOfDisambiguation="produce" constituents="543" id="br-a01.p1.s1.w12" pos="VERB"/>
+    <type4:WSDItem xmi:id="626" sofa="6" begin="112" end="120" subjectOfDisambiguation="evidence" constituents="620" id="br-a01.p1.s1.w14" pos="NOUN"/>
+    <type4:WSDItem xmi:id="721" sofa="6" begin="133" end="147" subjectOfDisambiguation="irregularity" constituents="715" id="br-a01.p1.s1.w17" pos="NOUN"/>
+    <type4:WSDItem xmi:id="780" sofa="6" begin="148" end="158" subjectOfDisambiguation="take_place" constituents="774" id="br-a01.p1.s1.w18" pos="VERB"/>
+    <type4:WSDItem xmi:id="868" sofa="6" begin="166" end="170" subjectOfDisambiguation="jury" constituents="862" id="br-a01.p2.s2.w2" pos="NOUN"/>
+    <type4:WSDItem xmi:id="927" sofa="6" begin="171" end="178" subjectOfDisambiguation="far" constituents="921" id="br-a01.p2.s2.w3" pos="ADV"/>
+    <type4:WSDItem xmi:id="986" sofa="6" begin="179" end="183" subjectOfDisambiguation="say" constituents="980" id="br-a01.p2.s2.w4" pos="VERB"/>
+    <type4:WSDItem xmi:id="1063" sofa="6" begin="187" end="191" subjectOfDisambiguation="term" constituents="1057" id="br-a01.p2.s2.w6" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1122" sofa="6" begin="192" end="195" subjectOfDisambiguation="end" constituents="1116" id="br-a01.p2.s2.w7" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1181" sofa="6" begin="196" end="208" subjectOfDisambiguation="presentment" constituents="1175" id="br-a01.p2.s2.w8" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1276" sofa="6" begin="218" end="242" subjectOfDisambiguation="group" constituents="1270" id="br-a01.p2.s2.w11" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1353" sofa="6" begin="251" end="254" subjectOfDisambiguation="have" constituents="1347" id="br-a01.p2.s2.w13" pos="VERB"/>
+    <type4:WSDItem xmi:id="1412" sofa="6" begin="255" end="263" subjectOfDisambiguation="overall" constituents="1406" id="br-a01.p2.s2.w14" pos="ADJ"/>
+    <type4:WSDItem xmi:id="1471" sofa="6" begin="264" end="270" subjectOfDisambiguation="charge" constituents="1465" id="br-a01.p2.s2.w15" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1566" sofa="6" begin="278" end="286" subjectOfDisambiguation="election" constituents="1560" id="br-a01.p2.s2.w18" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1625" sofa="6" begin="292" end="300" subjectOfDisambiguation="deserve" constituents="1619" id="br-a01.p2.s2.w19" pos="VERB"/>
+    <type4:WSDItem xmi:id="1702" sofa="6" begin="305" end="311" subjectOfDisambiguation="praise" constituents="1696" id="br-a01.p2.s2.w21" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1779" sofa="6" begin="316" end="322" subjectOfDisambiguation="thanks" constituents="1773" id="br-a01.p2.s2.w23" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1874" sofa="6" begin="330" end="345" subjectOfDisambiguation="location" constituents="1868" id="br-a01.p2.s2.w26" pos="NOUN"/>
+    <type4:WSDItem xmi:id="1969" sofa="6" begin="357" end="363" subjectOfDisambiguation="manner" constituents="1963" id="br-a01.p2.s2.w29" pos="NOUN"/>
+    <type4:WSDItem xmi:id="2082" sofa="6" begin="377" end="385" subjectOfDisambiguation="election" constituents="2076" id="br-a01.p2.s2.w33" pos="NOUN"/>
+    <type4:WSDItem xmi:id="2159" sofa="6" begin="390" end="399" subjectOfDisambiguation="conduct" constituents="2153" id="br-a01.p2.s2.w35" pos="VERB"/>
+    <type4:Sense xmi:id="96" sofa="6" begin="0" end="0" id="group%1:03:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="214" sofa="6" begin="0" end="0" id="friday%1:28:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="368" sofa="6" begin="0" end="0" id="atlanta%1:15:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="504" sofa="6" begin="0" end="0" id="primary_election%1:04:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="640" sofa="6" begin="0" end="0" id="evidence%1:09:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="794" sofa="6" begin="0" end="0" id="take_place%2:30:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="941" sofa="6" begin="0" end="0" id="far%4:02:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1077" sofa="6" begin="0" end="0" id="term%1:28:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1195" sofa="6" begin="0" end="0" id="presentment%1:04:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1367" sofa="6" begin="0" end="0" id="have%2:40:04::" confidence="1.0"/>
+    <type4:Sense xmi:id="1485" sofa="6" begin="0" end="0" id="charge%1:04:03::" confidence="1.0"/>
+    <type4:Sense xmi:id="1639" sofa="6" begin="0" end="0" id="deserve%2:42:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1793" sofa="6" begin="0" end="0" id="thanks%1:10:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1983" sofa="6" begin="0" end="0" id="manner%1:07:02::" confidence="1.0"/>
+    <type4:Sense xmi:id="2173" sofa="6" begin="0" end="0" id="conduct%2:41:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="2096" sofa="6" begin="0" end="0" id="election%1:04:01::" confidence="1.0"/>
+    <type4:Sense xmi:id="1888" sofa="6" begin="0" end="0" id="location%1:03:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1716" sofa="6" begin="0" end="0" id="praise%1:10:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1580" sofa="6" begin="0" end="0" id="election%1:04:01::" confidence="1.0"/>
+    <type4:Sense xmi:id="1426" sofa="6" begin="0" end="0" id="overall%5:00:00:gross:00" confidence="1.0"/>
+    <type4:Sense xmi:id="1290" sofa="6" begin="0" end="0" id="group%1:03:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1136" sofa="6" begin="0" end="0" id="end%1:28:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="1000" sofa="6" begin="0" end="0" id="say%2:32:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="882" sofa="6" begin="0" end="0" id="jury%1:14:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="735" sofa="6" begin="0" end="0" id="irregularity%1:04:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="563" sofa="6" begin="0" end="0" id="produce%2:39:01::" confidence="1.0"/>
+    <type4:Sense xmi:id="445" sofa="6" begin="0" end="0" id="recent%5:00:00:past:00" confidence="1.0"/>
+    <type4:Sense xmi:id="291" sofa="6" begin="0" end="0" id="investigation%1:09:00::" confidence="1.0"/>
+    <type4:Sense xmi:id="155" sofa="6" begin="0" end="0" id="say%2:32:00::" confidence="1.0"/>
+    <type4:WSDResult xmi:id="103" sofa="6" begin="5" end="29" senses="96" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="82"/>
+    <type4:WSDResult xmi:id="162" sofa="6" begin="30" end="34" senses="155" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="141"/>
+    <type4:WSDResult xmi:id="221" sofa="6" begin="35" end="41" senses="214" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="200"/>
+    <type4:WSDResult xmi:id="298" sofa="6" begin="45" end="58" senses="291" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="277"/>
+    <type4:WSDResult xmi:id="375" sofa="6" begin="62" end="69" senses="368" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="354"/>
+    <type4:WSDResult xmi:id="452" sofa="6" begin="73" end="79" senses="445" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="431"/>
+    <type4:WSDResult xmi:id="511" sofa="6" begin="80" end="96" senses="504" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="490"/>
+    <type4:WSDResult xmi:id="570" sofa="6" begin="97" end="105" senses="563" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="549"/>
+    <type4:WSDResult xmi:id="647" sofa="6" begin="112" end="120" senses="640" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="626"/>
+    <type4:WSDResult xmi:id="742" sofa="6" begin="133" end="147" senses="735" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="721"/>
+    <type4:WSDResult xmi:id="801" sofa="6" begin="148" end="158" senses="794" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="780"/>
+    <type4:WSDResult xmi:id="889" sofa="6" begin="166" end="170" senses="882" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="868"/>
+    <type4:WSDResult xmi:id="948" sofa="6" begin="171" end="178" senses="941" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="927"/>
+    <type4:WSDResult xmi:id="1007" sofa="6" begin="179" end="183" senses="1000" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="986"/>
+    <type4:WSDResult xmi:id="1084" sofa="6" begin="187" end="191" senses="1077" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1063"/>
+    <type4:WSDResult xmi:id="1143" sofa="6" begin="192" end="195" senses="1136" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1122"/>
+    <type4:WSDResult xmi:id="1202" sofa="6" begin="196" end="208" senses="1195" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1181"/>
+    <type4:WSDResult xmi:id="1297" sofa="6" begin="218" end="242" senses="1290" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1276"/>
+    <type4:WSDResult xmi:id="1374" sofa="6" begin="251" end="254" senses="1367" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1353"/>
+    <type4:WSDResult xmi:id="1433" sofa="6" begin="255" end="263" senses="1426" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1412"/>
+    <type4:WSDResult xmi:id="1492" sofa="6" begin="264" end="270" senses="1485" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1471"/>
+    <type4:WSDResult xmi:id="1587" sofa="6" begin="278" end="286" senses="1580" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1566"/>
+    <type4:WSDResult xmi:id="1646" sofa="6" begin="292" end="300" senses="1639" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1625"/>
+    <type4:WSDResult xmi:id="1723" sofa="6" begin="305" end="311" senses="1716" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1702"/>
+    <type4:WSDResult xmi:id="1800" sofa="6" begin="316" end="322" senses="1793" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1779"/>
+    <type4:WSDResult xmi:id="1895" sofa="6" begin="330" end="345" senses="1888" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1874"/>
+    <type4:WSDResult xmi:id="1990" sofa="6" begin="357" end="363" senses="1983" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="1969"/>
+    <type4:WSDResult xmi:id="2103" sofa="6" begin="377" end="385" senses="2096" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="2082"/>
+    <type4:WSDResult xmi:id="2180" sofa="6" begin="390" end="399" senses="2173" disambiguationMethod="de.tudarmstadt.ukp.dkpro.wsd.io.reader.SemCorXMLReader" senseInventory="WordNet_3.0_sensekey" wsdItem="2159"/>
+    <pos:V xmi:id="117" sofa="6" begin="30" end="34" PosValue="VB"/>
+    <pos:V xmi:id="525" sofa="6" begin="97" end="105" PosValue="VB"/>
+    <pos:V xmi:id="756" sofa="6" begin="148" end="158" PosValue="VB"/>
+    <pos:V xmi:id="962" sofa="6" begin="179" end="183" PosValue="VB"/>
+    <pos:V xmi:id="1329" sofa="6" begin="251" end="254" PosValue="VB"/>
+    <pos:V xmi:id="1601" sofa="6" begin="292" end="300" PosValue="VB"/>
+    <pos:V xmi:id="2112" sofa="6" begin="386" end="389" PosValue="VBD"/>
+    <pos:V xmi:id="2135" sofa="6" begin="390" end="399" PosValue="VB"/>
+    <pos:NN xmi:id="176" sofa="6" begin="35" end="41" PosValue="NN"/>
+    <pos:NN xmi:id="253" sofa="6" begin="45" end="58" PosValue="NN"/>
+    <pos:NN xmi:id="330" sofa="6" begin="62" end="69" PosValue="NN"/>
+    <pos:NN xmi:id="466" sofa="6" begin="80" end="96" PosValue="NN"/>
+    <pos:NN xmi:id="602" sofa="6" begin="112" end="120" PosValue="NN"/>
+    <pos:NN xmi:id="697" sofa="6" begin="133" end="147" PosValue="NN"/>
+    <pos:NN xmi:id="844" sofa="6" begin="166" end="170" PosValue="NN"/>
+    <pos:NN xmi:id="1039" sofa="6" begin="187" end="191" PosValue="NN"/>
+    <pos:NN xmi:id="1098" sofa="6" begin="192" end="195" PosValue="NN"/>
+    <pos:NN xmi:id="1157" sofa="6" begin="196" end="208" PosValue="NN"/>
+    <pos:NN xmi:id="1447" sofa="6" begin="264" end="270" PosValue="NN"/>
+    <pos:NN xmi:id="1542" sofa="6" begin="278" end="286" PosValue="NN"/>
+    <pos:NN xmi:id="1678" sofa="6" begin="305" end="311" PosValue="NN"/>
+    <pos:NN xmi:id="1755" sofa="6" begin="316" end="322" PosValue="NN"/>
+    <pos:NN xmi:id="1945" sofa="6" begin="357" end="363" PosValue="NN"/>
+    <pos:NN xmi:id="2058" sofa="6" begin="377" end="385" PosValue="NN"/>
+    <pos:PP xmi:id="307" sofa="6" begin="59" end="61" PosValue="IN"/>
+    <pos:PP xmi:id="656" sofa="6" begin="124" end="128" PosValue="IN"/>
+    <pos:PP xmi:id="1016" sofa="6" begin="184" end="186" PosValue="IN"/>
+    <pos:PP xmi:id="1211" sofa="6" begin="209" end="213" PosValue="IN"/>
+    <pos:PP xmi:id="1501" sofa="6" begin="271" end="273" PosValue="IN"/>
+    <pos:PP xmi:id="1809" sofa="6" begin="323" end="325" PosValue="IN"/>
+    <pos:PP xmi:id="1904" sofa="6" begin="349" end="352" PosValue="IN"/>
+    <pos:ADJ xmi:id="407" sofa="6" begin="73" end="79" PosValue="JJ"/>
+    <pos:ADJ xmi:id="1388" sofa="6" begin="255" end="263" PosValue="JJ"/>
+    <type3:Sentence xmi:id="30" sofa="6" begin="0" end="161"/>
+    <type3:Sentence xmi:id="816" sofa="6" begin="161" end="402"/>
+    <type3:Paragraph xmi:id="24" sofa="6" begin="0" end="161"/>
+    <type3:Paragraph xmi:id="810" sofa="6" begin="161" end="402"/>
+    <pos:ADV xmi:id="903" sofa="6" begin="171" end="178" PosValue="RB"/>
+    <pos:ADV xmi:id="1999" sofa="6" begin="364" end="366" PosValue="RB"/>
+    <pos:ADV xmi:id="2017" sofa="6" begin="367" end="372" PosValue="RB"/>
+    <pos:CONJ xmi:id="1732" sofa="6" begin="312" end="315" PosValue="CC"/>
+    <cas:Sofa xmi:id="6" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString=" The Fulton_County_Grand_Jury said Friday an investigation of Atlanta 's recent primary_election produced `` no evidence '' that any irregularities took_place .  The jury further said in term end presentments that the City_Executive_Committee , which had over-all charge of the election , `` deserves the praise and thanks of the City_of_Atlanta '' for the manner in which the election was conducted . "/>
+    <cas:View sofa="6" members="13 35 230 579 674 821 1229 1306 1519 1655 1827 1922 2035 41 64 123 182 236 259 313 336 390 413 472 531 585 608 662 680 703 762 827 850 909 968 1022 1045 1104 1163 1217 1235 1258 1312 1335 1394 1453 1507 1525 1548 1607 1661 1684 1738 1761 1815 1833 1856 1910 1928 1951 2005 2023 2041 2064 2118 2141 53 112 171 248 325 402 461 520 597 692 751 839 898 957 1034 1093 1152 1247 1324 1383 1442 1537 1596 1673 1750 1845 1940 2053 2130 58 384 1252 1850 76 135 194 271 348 425 484 543 620 715 774 862 921 980 1057 1116 1175 1270 1347 1406 1465 1560 1619 1696 1773 1868 1963 2076 2153 82 141 200 277 354 431 490 549 626 721 780 868 927 986 1063 1122 1181 1276 1353 1412 1471 1566 1625 1702 1779 1874 1969 2082 2159 96 214 368 504 640 794 941 1077 1195 1367 1485 1639 1793 1983 2173 2096 1888 1716 1580 1426 1290 1136 1000 882 735 563 445 291 155 103 162 221 298 375 452 511 570 647 742 801 889 948 1007 1084 1143 1202 1297 1374 1433 1492 1587 1646 1723 1800 1895 1990 2103 2180 117 525 756 962 1329 1601 2112 2135 176 253 330 466 602 697 844 1039 1098 1157 1447 1542 1678 1755 1945 2058 307 656 1016 1211 1501 1809 1904 407 1388 30 816 24 810 903 1999 2017 1732"/>
+</xmi:XMI>

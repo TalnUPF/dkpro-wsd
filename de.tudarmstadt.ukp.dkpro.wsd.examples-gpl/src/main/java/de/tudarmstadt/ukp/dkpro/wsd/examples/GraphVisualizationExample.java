@@ -63,7 +63,7 @@ public class GraphVisualizationExample
         // system.
         WordNetSenseKeySenseInventory inventory = new WordNetSenseKeySenseInventory(
                 new FileInputStream(
-                        "/home/miller/share/WordNet/WordNet-3.0/extjwnl_properties.xml"));
+                        ""));
 
         // If you happen to have a serialized WordNet graph, you can specify
         // its location here and it will be read in. (If no serialized graph is

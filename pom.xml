@@ -22,8 +22,25 @@
 		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 		<version>10</version>
 	</parent>
-    <properties>
-        <dkpro.core.version>1.7.0</dkpro.core.version>
+ <repositories>
+        <!--  
+        <repository>
+            <id>taln</id>
+            <url>http://maven-taln.s.upf.edu/repository/all</url>
+        </repository>
+        -->
+        <repository>
+            <id>ukp-oss-releases</id>
+            <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases</url>
+        </repository>
+        <repository>
+            <id>ukp-oss-snapshots</id>
+            <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots</url>
+        </repository>
+    </repositories>
+  
+  <properties>
+        <dkpro.core.version>1.9.0-SNAPSHOT</dkpro.core.version>
         <jung.version>2.0.1</jung.version>
     </properties>
 	<modelVersion>4.0.0</modelVersion>
@@ -48,6 +65,8 @@
 		<system>GitHub</system>
 		<url>https://github.com/dkpro/dkpro-wsd/issues</url>
 	</issueManagement>
+
+
 	<build>
 		<extensions>
 			<extension>
@@ -56,23 +75,17 @@
 				<version>1.0-beta-2</version>
 			</extension>
 		</extensions>
+<plugins>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <configuration>
+      <additionalparam>-Xdoclint:none</additionalparam>
+    </configuration>
+  </plugin>
+</plugins>
 	</build>
-	<repositories>
-		<repository>
-			<id>ukp-oss-releases</id>
-			<url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases</url>
-		</repository>
-	</repositories>
-	<distributionManagement>
-		<repository>
-			<id>ukp-oss</id>
-			<url>dav:https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-ukp-releases-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>ukp-oss</id>
-			<url>dav:https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-ukp-snapshots-local</url>
-		</snapshotRepository>
-	</distributionManagement>
+
 	<developers>
 		<developer>
 			<id>miller</id>

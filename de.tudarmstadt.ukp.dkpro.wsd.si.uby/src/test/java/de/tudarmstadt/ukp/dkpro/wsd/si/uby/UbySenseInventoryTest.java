@@ -24,6 +24,8 @@ package de.tudarmstadt.ukp.dkpro.wsd.si.uby;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -36,37 +38,114 @@ import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 
 /**
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
+ * @author Joan Codina
+ * lexicon names
+ * FrameNet
+OmegaWiki_deu
+OmegaWiki_eng
+OntoWiktionaryDE
+OntoWiktionaryEN
+OpenThesaurus
+VerbNet
+Wikipedia_deu
+Wikipedia_eng
+WiktionaryDE
+WiktionaryEN
+WordNet
+
  *
  */
-@Ignore
+
 public class UbySenseInventoryTest
 {
     private static UbySenseInventory si;
 
-    @Ignore
-    @BeforeClass
-    public static void setUpBeforeClass()
+    public static void main( String[] args )
+    {
+    	try {
+    		setUpBeforeClass();
+    		
+        	UbySenseInventoryTest uby = new UbySenseInventoryTest();
+    		//uby.ubySenseInventoryTest();
+    		//uby.frequencyTest();
+    		// uby.alignmentTest();
+    		uby.checkSentence("The black bears were sitting the black bear sat in front of the main door of the White House, the house of the President of the United States of America."
+    							,7);
+    		
+    	} catch (Exception e){
+    		e.printStackTrace();
+    	}
+    	
+    }
+    public static List<String> ngrams(int n, String [] words) {
+        List<String> ngrams = new ArrayList<String>();
+        for (int i = 0; i < words.length - n + 1; i++)
+            ngrams.add(concat(words, i, i+n));
+        return ngrams;
+    }
+
+    public static String concat(String[] words, int start, int end) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = start; i < end; i++)
+            sb.append((i > start ? " " : "") + words[i]);
+        return sb.toString();
+    }
+
+    public static List<String> all_ngrams(int size, String [] words) {
+        List<String> ngrams = new ArrayList<String>();
+
+    	for (int n = 1; n <= size; n++) {
+    		ngrams.addAll(ngrams(n,words));
+        }
+    	return ngrams;
+    }   
+    private void checkSentence(String sentence, int ngramsSize) {
+    	 try {
+			si.setLexicon(null);;
+	    	//si.setLexicon("WiktionaryEN");
+  	     String[] words = sentence.split("[ ,.:';]+");
+  	     List<String> ngrams = all_ngrams(ngramsSize, words);
+         for (String word :ngrams) {
+        	 //check if present in UBY
+        	 List<String> senses2 =si.getSenses(word);
+        	 List<String> senses =si.getSenses(word, POS.NOUN);
+       	 
+        	 if(senses2.size()>0) { System.out.println( senses2.size()+"\t"+senses.size()+"\t"+word);
+        	 	String sense=si.getMostFrequentSense(word,POS.NOUN);
+        	 	if(sense!=null) printSenseInformation( sense); 
+        	 }
+         }
+         
+   	 
+		} catch (SenseInventoryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  	}
+
+	public static void setUpBeforeClass()
         throws Exception
     {
         si = new UbySenseInventory(
-                "localhost/uby_open_0_3_0",
-                "com.mysql.jdbc.Driver", "mysql", "username", "password",
-                false);
+                "127.0.0.1:3307/uby_open_0_7_0",
+                // "com.mysql.jdbc.Driver", "mysql", "uby", "UbyTaln_17",
+                "com.mysql.jdbc.Driver", "mysql", "root", "ipat14",
+                 false);
     }
 
-    @Ignore
-    @Test
+  
     public void ubySenseInventoryTest()
         throws SenseInventoryException
     {
 
-        si.setLexicon(null);
+    //    si.setLexicon(null);
+    	 si.setLexicon("WordNet");
         si.setAllowMultilingualAlignments(false);
         System.out.println(si.getSenseInventoryName());
 
-        List<String> senses = si.getSenses("set", POS.NOUN);
+      //  List<String> senses = si.getSenses("set", POS.NOUN);
+        List<String> senses = si.getSenses("black bear", POS.NOUN);
 
-        assertEquals(47, senses.size());
 
         int i = 0;
         for (String sense : senses) {
@@ -75,30 +154,32 @@ public class UbySenseInventoryTest
         }
     }
 
-    @Ignore
-    @Test
     public void frequencyTest()
         throws SenseInventoryException
     {
+    	System.out.println("============== Frequency Test ======================== ");
         si.setLexicon(null);
         System.out.println(si.getSenseInventoryName());
-        assertEquals("FN_Sense_3178", si.getMostFrequentSense("set"));
-
+        System.out.println(si.getMostFrequentSense("set"));
+  
         si.setLexicon("WordNet");
         System.out.println(si.getSenseInventoryName());
-        assertNull(si.getMostFrequentSense("set"));
-    }
+        System.out.println(si.getMostFrequentSense("set"));
+       }
 
-    @Ignore
-    @Test
     public void alignmentTest()
         throws SenseInventoryException
     {
-        final String id = "WN_Sense_40443";
-        si.setLexicon("WordNet");
-
-        Set<String> alignments = si.getSenseAlignments(id);
-        assertEquals(1, alignments.size());
+    	System.out.println("============== Aignment TEST ======================== ");
+        // final String id = "WN_Sense_40443";
+        final String id = "WikiEN_sense_22277";
+        // si.setLexicon("WordNet");
+        printSenseInformation(id);
+        si.setAllowMultilingualAlignments(false);
+        
+        Set<String> alignments = si.getSenseAlignments(id); 
+        System.out.println(alignments.size());
+        // assertEquals(1, alignments.size());
         System.out.println("Monolingual alignments of " + id + ": " + si.getSenseAlignments(id));
         for (String sense : alignments) {
             printSenseInformation(sense);

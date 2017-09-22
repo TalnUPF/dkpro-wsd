@@ -22,6 +22,7 @@ import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngine;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.util.JCasUtil.select;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -31,6 +32,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma;
+import de.tudarmstadt.ukp.dkpro.core.matetools.MateLemmatizer;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
@@ -55,6 +57,20 @@ public class EnglishStopLemmatizer
     {
         // Set up stemmer and lemmatizer
         try {
+ 		   AnalysisEngineDescription lemma = createEngineDescription(MateLemmatizer.class,
+ 					MateLemmatizer.PARAM_MODEL_LOCATION, new File("/home/joan/Desktop/TALN/UIMA/", "CoNLL2009-ST-English-ALL.anna-3.3.lemmatizer.model"));
+ 	            lemmatizer = createEngineDescription(
+ 	                    createEngineDescription(BreakIteratorSegmenter.class),
+ 	                    lemma,
+ 	                    createEngineDescription(
+ 	                            StopWordRemover.class,
+ 	                            StopWordRemover.PARAM_MODEL_LOCATION,
+ 	                            "/home/joan/Desktop/TALN/UIMA/dpro_wsd/dkpro-wsd/de.tudarmstadt.ukp.dkpro.wsd.core/target/classes/stopwords/stoplist_en.txt"
+ 	                      )
+ 	                    );
+ 	            engine = createEngine(lemmatizer);
+/*
+        	
             lemmatizer = createEngineDescription(
                     createEngineDescription(BreakIteratorSegmenter.class),
                     createEngineDescription(StanfordLemmatizer.class),
@@ -63,6 +79,7 @@ public class EnglishStopLemmatizer
                             StopWordRemover.PARAM_PATHS,
                             new String[] { "classpath:/stopwords/stoplist_en.txt" }));
             engine = createEngine(lemmatizer);
+            */
         }
         catch (Exception e) {
             e.printStackTrace();

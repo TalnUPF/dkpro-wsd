@@ -136,6 +136,8 @@ public abstract class WSDAnnotatorBase
             wsdResult.setSenseInventory(inventory.getSenseInventoryName());
             wsdResult.setDisambiguationMethod(getDisambiguationMethod());
             wsdResult.setWsdItem(wsdItem);
+            wsdResult.setBegin(wsdItem.getBegin());
+            wsdResult.setEnd(wsdItem.getEnd());
 
             if (bestOnly == true) {
                 discardAllButHighestConfidence(disambiguationResult);

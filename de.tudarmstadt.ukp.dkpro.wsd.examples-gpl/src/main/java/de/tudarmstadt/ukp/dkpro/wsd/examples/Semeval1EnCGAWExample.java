@@ -31,6 +31,7 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.resource.ExternalResourceDescription;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
+import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import de.tudarmstadt.ukp.dkpro.wsd.algorithm.MostFrequentSenseBaseline;
 import de.tudarmstadt.ukp.dkpro.wsd.annotator.WSDAnnotatorContextPOS;
 import de.tudarmstadt.ukp.dkpro.wsd.annotator.WSDAnnotatorIndividualPOS;
@@ -69,9 +70,10 @@ public class Semeval1EnCGAWExample
         // the {@link de.tudarmstadt.ukp.dkpro.wsd.senseval} module.  Then
         // change the value of the directory variable below to point to the
         // location on your filesystem where you stored the patched data set.
-        final String directory = "/home/miller/share/corpora/semeval-1/task07/";
-        final String corpus = directory + "test/eng-coarse-all-words.xml";
-        final String answerkey = directory + "key/dataset21.test.key";
+        // final String directory = "/home/miller/share/corpora/semeval-1/task07/";
+       //  final String corpus = directory + "test/eng-coarse-all-words.xml";
+        final String corpus ="/home/joan/Desktop/TALN/UIMA/dpro_wsd/dkpro-wsd/de.tudarmstadt.ukp.dkpro.wsd.testing/src/main/resources/senseval/semeval1aw.xml";
+        // final String answerkey = directory + "key/dataset21.test.key";
 
         // A reader for the SemEval-2007 English coarse-grained all-words corpus
         CollectionReader reader = createReader(
@@ -80,14 +82,14 @@ public class Semeval1EnCGAWExample
         // A resource for WordNet 2.1. You need to create an extJWNL properties
         // file and change the value of the PARAM_WORDNET_PROPERTIES_URL to
         // point to its location on your file system.
-        final String wordnetInventoryName = "WordNet_2.1_sensekey";
+        final String wordnetInventoryName = "WordNet_3.0_sensekey";
         ExternalResourceDescription wordnet21 = createExternalResourceDescription(
                 WordNetSenseKeySenseInventoryResource.class,
                 WordNetSenseKeySenseInventoryResource.PARAM_WORDNET_PROPERTIES_URL,
-                "/home/miller/share/WordNet/WordNet-2.1/extjwnl_properties.xml",
+                "/home/joan/Desktop/TALN/UIMA/SummarizationPipelineTests/UimaWsdPipelines/src/main/resources/extjwnl_properties.xml",
                 WordNetSenseKeySenseInventoryResource.PARAM_SENSE_INVENTORY_NAME,
                 wordnetInventoryName);
-
+        /*
         // A reader for the gold standard answer key
         final String semEvalInventoryName = "SemEval1_sensekey";
         AnalysisEngineDescription answerReader = createEngineDescription(
@@ -95,7 +97,7 @@ public class Semeval1EnCGAWExample
                 SensevalAnswerKeyReader.PARAM_FILE, answerkey,
                 SensevalAnswerKeyReader.PARAM_SENSE_INVENTORY,
                 semEvalInventoryName);
-
+         
         // The SemEval sense identifiers are based on (but subtly different
         // from) sense keys from WordNet 2.1.  We therefore use this AE to
         // convert them to WordNet 2.1 sense keys. We have a delimited text
@@ -111,7 +113,7 @@ public class Semeval1EnCGAWExample
                 wordnetInventoryName, SenseMapper.PARAM_KEY_COLUMN, 2,
                 SenseMapper.PARAM_VALUE_COLUMN, 1,
                 SenseMapper.PARAM_IGNORE_UNKNOWN_SENSES, true);
-
+        */
         // Create a resource for the simplified Lesk algorithm.  We bind our
         // WordNet sense inventory to it, and we specify some parameters such
         // as what strategy the algorithm uses for tokenizing the text and
@@ -160,6 +162,7 @@ public class Semeval1EnCGAWExample
         // Output the raw sense assignments to HTML.  You should change the
         // value of the PARAM_OUTPUT_FILE configuration parameter to point to
         // some writable location on your filesystem.
+        /*
         AnalysisEngineDescription writer = createEngineDescription(
                 EvaluationTableHTML.class,
                 EvaluationTableHTML.PARAM_GOLD_STANDARD_ALGORITHM, answerkey,
@@ -185,15 +188,22 @@ public class Semeval1EnCGAWExample
                 "/tmp/WSDWriterHTML_evaluator.html",
                 SingleExactMatchEvaluatorHTML.PARAM_MAXIMUM_ITEMS_TO_ATTEMPT,
                 maxItemsToAttempt);
-
+            */
+    	AnalysisEngineDescription writer = createEngineDescription(XmiWriter.class,
+				XmiWriter.PARAM_TARGET_LOCATION, "output/",
+				XmiWriter.PARAM_OVERWRITE, true,
+				XmiWriter.PARAM_TYPE_SYSTEM_FILE, "TypeSystem.xml");
+		   
+        
         // String all the components into a pipeline
         SimplePipeline.runPipeline(reader,
-                answerReader,
-                convertSensevalToSensekey,
-                mfsBaseline,
-                simplifiedLesk,
-                writer,
-                evaluator);
+               // answerReader,
+               // convertSensevalToSensekey,
+               // mfsBaseline,
+               // simplifiedLesk,
+                writer
+                //, evaluator
+                );
     }
 
 }

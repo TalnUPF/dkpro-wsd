@@ -18,14 +18,22 @@
 
 package de.tudarmstadt.ukp.dkpro.wsd.io.reader;
 
+import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReader;
+import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+
+import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReader;
+import org.apache.uima.collection.CollectionReaderDescription;
+import org.apache.uima.fit.factory.AggregateBuilder;
 import org.apache.uima.fit.pipeline.JCasIterator;
+import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.junit.Test;
@@ -34,6 +42,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Paragraph;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
+import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import de.tudarmstadt.ukp.dkpro.wsd.si.POS;
 import de.tudarmstadt.ukp.dkpro.wsd.type.LexicalItemConstituent;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
@@ -45,6 +54,36 @@ public class SemCorXMLReaderTest
     public final static String sentence2=" The jury further said in term end presentments that the City_Executive_Committee , which had over-all charge of the election , `` deserves the praise and thanks of the City_of_Atlanta '' for the manner in which the election was conducted . ";
     public final static String sentence3=" Committee approval of Gov._Price_Daniel 's `` abandoned property '' act seemed certain Thursday despite the adamant protests of Texas bankers . ";
     public final static String sentence4=" Daniel personally led the fight for the measure , which he had watered_down considerably since its rejection by two previous Legislatures , in a public hearing before the House_Committee_on_Revenue_and_Taxation . ";
+ 
+    public static void main(String[] args) throws Exception
+    {
+      try{
+      final String semCorDirectory = "/home/joan/Desktop/TALN/UIMA/dpro_wsd/dkpro-wsd/de.tudarmstadt.ukp.dkpro.wsd.testing/src/main/resources/semcor";
+      File output = new File("src/test/resources");
+
+
+      CollectionReaderDescription reader;
+	  reader =  createReaderDescription( SemCorXMLReader.class,
+		        SemCorXMLReader.PARAM_SOURCE_LOCATION, semCorDirectory,
+              SemCorXMLReader.PARAM_PATTERNS,  new String[] {
+              ResourceCollectionReaderBase.INCLUDE_PREFIX + "*.xml" });
+      //xmi Writter
+      AnalysisEngineDescription xmiWriter = createEngineDescription(XmiWriter.class,
+              XmiWriter.PARAM_TARGET_LOCATION, output,
+              XmiWriter.PARAM_OVERWRITE,true);
+
+      AggregateBuilder builder = new AggregateBuilder();
+      builder.add(xmiWriter);
+      // builder.add(xmiWriter);
+      AnalysisEngineDescription pipeline = builder.createAggregateDescription();
+
+
+      SimplePipeline.runPipeline(reader, pipeline);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}             
+    }
 
 	@Test
 	public void semCorXMLReaderTest()
