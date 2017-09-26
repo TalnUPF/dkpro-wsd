@@ -51,6 +51,9 @@ public class BabelnetSenseInventoryResource
     @ConfigurationParameter(name = PARAM_BABELNET_LANG, description = "Language used to search in Babelnet", mandatory = true)
     protected Language babelNetLang;
 
+    public static final String PARAM_BABELNET_DESCLANG = "babelNetDescLang";
+    @ConfigurationParameter(name = PARAM_BABELNET_DESCLANG, description = "Language used to write the description in Babelnet", mandatory = true)
+    protected Language babelNetDescLang;
 
     public static final String PARAM_babelNet_LEXICON = "babelNetLexicon";
     @ConfigurationParameter(name = PARAM_babelNet_LEXICON, description = "Lexicon to use with BabelNet; if null or none all available lexicons will be used", mandatory = false)
@@ -80,7 +83,7 @@ public class BabelnetSenseInventoryResource
         }
 
         try {
-            inventory = new BabelnetSenseInventory(babelNetPath,babelNetLang);
+            inventory = new BabelnetSenseInventory(babelNetPath,babelNetLang,babelNetDescLang);
             ((BabelnetSenseInventory) inventory).setLexicon(babelNetLexicon);
         }
         catch (SenseInventoryException e) {

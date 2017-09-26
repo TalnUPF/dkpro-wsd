@@ -76,6 +76,7 @@ public class BabelnetSenseInventory extends SenseInventoryBase
     private String senseDescriptionFormat = "%w; %d";
     private final Map<String, BabelSynset> cachedSynset = new HashMap<String, BabelSynset>();
  	private Language language;
+	private Language descLanguage;
 	
 
     public String getLanguage() {
@@ -104,7 +105,7 @@ public class BabelnetSenseInventory extends SenseInventoryBase
      * 			default language
      * @throws SenseInventoryException
      */
-    public BabelnetSenseInventory(String configPath, Language lang)
+    public BabelnetSenseInventory(String configPath, Language lang,Language descLang)
         throws SenseInventoryException
     {
         File configPathF = new File("src/main/resources/config");
@@ -125,6 +126,7 @@ public class BabelnetSenseInventory extends SenseInventoryBase
         this.lexicons=new HashSet<BabelSenseSource>();
         this.lexiconsArr=new BabelSenseSource[0];
         this.language=lang;
+        descLanguage=descLang;
     }
    
     
@@ -374,6 +376,7 @@ public class BabelnetSenseInventory extends SenseInventoryBase
        if (synsetsList.isEmpty()) return null;    	
        Collections.sort(synsetsList, new BabelSynsetComparator(sod, Language.EN));
        BabelSynset mfs=synsetsList.get(0);
+      
        cachedSynset.put(mfs.getId().getID(),mfs);
 
        return mfs.getId().getID();     
@@ -390,17 +393,21 @@ public class BabelnetSenseInventory extends SenseInventoryBase
     {
         try {
         BabelSynset synset = cachedSynsetGet(synsetId);
-        BabelGloss glossB = synset.getMainGloss(language);
-        String gloss="";
+        BabelGloss glossB = synset.getMainGloss(descLanguage);
+        if (glossB==null) glossB = synset.getMainGloss(language);
+        String gloss="-- "+synset.getMainSense(descLanguage).getLemma()+ "--" ;
         if (glossB==null)
         {
         	System.out.println("no gloss on synset" + synsetId + " "+synset.getMainSense(language).getLemma());
         } else {
-        	gloss= glossB.getGloss();
+        	gloss+= glossB.getGloss();
         }
         String description = senseDescriptionFormat.replace("%d",gloss);
-			description = description.replace("%e", synset.getExamples(language).toString());
-        List<BabelSense> senses = synset.getSenses(language );
+        List<BabelExample> examples = synset.getExamples(descLanguage);
+        if (examples.isEmpty()) examples = synset.getExamples(language);
+			description = description.replace("%e", examples.toString());
+        List<BabelSense> senses = synset.getSenses(descLanguage );
+        if (senses.isEmpty()) senses = synset.getSenses(language );
         String ListSenses ="";
         String sep=" ";
         
