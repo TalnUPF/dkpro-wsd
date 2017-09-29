@@ -71,7 +71,8 @@ public class BabelNetSenseInventoryResourceTest
         bindResource(desc, Annotator.MODEL_KEY,
                 BabelnetSenseInventoryResource.class,
                 BabelnetSenseInventoryResource.PARAM_BABELNET_CONFIGPATH,"src/main/resources/config",
-                BabelnetSenseInventoryResource.PARAM_BABELNET_LANG, "EN");// should it be ? Language.EN
+                BabelnetSenseInventoryResource.PARAM_BABELNET_LANG, "EN",
+                BabelnetSenseInventoryResource.PARAM_BABELNET_DESCLANG, "EN");// should it be ? Language.EN
 
         // Check the external resource was injected
         AnalysisEngine ae = createEngine(desc);

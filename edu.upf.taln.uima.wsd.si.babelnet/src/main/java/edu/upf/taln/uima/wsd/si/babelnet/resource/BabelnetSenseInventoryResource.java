@@ -81,7 +81,7 @@ public class BabelnetSenseInventoryResource
         if (!super.initialize(aSpecifier, aAdditionalParams)) {
             return false;
         }
-
+        
         try {
             inventory = new BabelnetSenseInventory(babelNetPath,babelNetLang,babelNetDescLang);
             ((BabelnetSenseInventory) inventory).setLexicon(babelNetLexicon);

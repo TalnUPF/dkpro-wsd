@@ -19,6 +19,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>edu.upf.taln.uima.wsd.si.babelnet</artifactId>
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>1.7</jdk.version>
+        
+       <mvn.compiler.version>3.5.1</mvn.compiler.version>
+
+    </properties>
   <dependencies>
   	<dependency>
   		<groupId>de.tudarmstadt.ukp.dkpro.wsd</groupId>
@@ -54,9 +61,30 @@
     <artifactId>commons-configuration</artifactId>
     <version>1.9</version>
 </dependency>
+  	<dependency>
+  		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+  		<artifactId>
+  			de.tudarmstadt.ukp.dkpro.core.io.text-asl
+  		</artifactId>
+  		<version>1.9.0-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
   <name>DKPro WSD - babelnet</name>
   <description>DKPro WSD modules for using babelnet as a sense inventory</description>
   <groupId>edu.upf.taln.uima.wsd</groupId>
   <version>0.9-SNAPSHOT</version>
+  
+  <build>
+             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${mvn.compiler.version}</version>
+                    <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+       </build>
 </project>

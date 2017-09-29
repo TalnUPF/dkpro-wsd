@@ -179,7 +179,7 @@ public abstract class WSDAnnotatorBase
                 sense.setConfidence(entry.getValue());
                 if (setSenseDescriptions == true) {
                     sense.setDescription(inventory.getSenseDescription(entry
-                            .getKey()));
+                            .getKey(),true));
                 }
                 // TODO: Is it really necessary to add senses to the indexes?
                 sense.addToIndexes();

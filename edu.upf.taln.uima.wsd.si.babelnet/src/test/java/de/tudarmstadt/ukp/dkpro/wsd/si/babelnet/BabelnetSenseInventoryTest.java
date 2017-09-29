@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -68,52 +69,64 @@ public class BabelnetSenseInventoryTest
     		
         	BabelnetSenseInventoryTest babelNet = new BabelnetSenseInventoryTest();
     		babelNet.babelNetSenseInventoryTest();
-    		babelNet.frequencyTest();
-    		babelNet.alignmentTest();
-    		babelNet.checkSentence("The black bears were sitting the black bear sat in front of the main door of the White House, the house of the President of the United States of America."
-    							,7);
+    		//babelNet.frequencyTest();
+    		//babelNet.alignmentTest();
+    		// babelNet.checkSentence("The black bears were sitting where the black bear الجوية sat in front of the main door of the White House,the house of the President of the United States of America."
+    		//					,7,false);
     		
+    		si.setLanguage("AR");
+    		babelNet.checkSentence("تسلمت الخطوط الجوية القطرية أكبر طائرة شحن من طراز بوينغ 747 أف 8 ضمن خطتها لتعزيز أسطولها من الشحن الجوي ومكانتها العالمية"
+					,7,true);
+
     	} catch (Exception e){
     		e.printStackTrace();
     	}
     	
     }
-    public static List<String> ngrams(int n, String [] words) {
+    public static List<String> ngrams(int n, String [] words, Boolean reverse) {
         List<String> ngrams = new ArrayList<String>();
         for (int i = 0; i < words.length - n + 1; i++)
-            ngrams.add(concat(words, i, i+n));
+            ngrams.add(concat(words, i, i+n,reverse));
         return ngrams;
     }
 
-    public static String concat(String[] words, int start, int end) {
+    public static String concat(String[] words, int start, int end, Boolean reverse) {
         StringBuilder sb = new StringBuilder();
-        for (int i = start; i < end; i++)
-            sb.append((i > start ? " " : "") + words[i]);
-        return sb.toString();
+        String rev="\u202C";
+        if (reverse) rev="\u202B";
+        for (int i = start; i < end; i++){
+            sb.append( (i > start ? " " : "") + rev+ words[i]);
+          
+        }
+        return sb.toString().replaceAll(rev, "");
     }
 
-    public static List<String> all_ngrams(int size, String [] words) {
+    public static List<String> all_ngrams(int size, String [] words, Boolean reverse) {
         List<String> ngrams = new ArrayList<String>();
 
     	for (int n = 1; n <= size; n++) {
-    		ngrams.addAll(ngrams(n,words));
+    		ngrams.addAll(ngrams(n,words,reverse));
         }
     	return ngrams;
     }   
-    private void checkSentence(String sentence, int ngramsSize) {
+    private void checkSentence(String sentence, int ngramsSize,Boolean reverse) {
     	 try {
 			si.setLexicon(null);;
 	    	//si.setLexicon("WiktionaryEN");
   	     String[] words = sentence.split("[ ,.:';]+");
-  	     List<String> ngrams = all_ngrams(ngramsSize, words);
+   	     List<String> ngrams = all_ngrams(ngramsSize, words,reverse);
          for (String word :ngrams) {
-        	 //check if present in babelNet
+       	 //check if present in babelNet
         	 List<String> senses2 =si.getSenses(word);
         	 List<String> senses =si.getSenses(word, POS.NOUN);
        	 
         	 if(senses2.size()>0) { System.out.println( senses2.size()+"\t"+senses.size()+"\t"+word);
         	 	String sense=si.getMostFrequentSense(word,POS.NOUN);
         	 	if(sense!=null) printSenseInformation( sense); 
+        	 	else System.out.println("---- no sense-----"+word+"---_");
+        	 }
+        	 else {
+        		System.out.println("---- not found -----"+word+"---_");
         	 }
          }
          
@@ -124,10 +137,11 @@ public class BabelnetSenseInventoryTest
 		}
   	}
 
+	
 	public static void setUpBeforeClass()
         throws Exception
     {
-        si = new BabelnetSenseInventory("src/main/resources/config",Language.EN);
+        si = new BabelnetSenseInventory("src/main/resources/config",Language.EN,Language.EN);
     }
 
   

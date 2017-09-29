@@ -177,6 +177,7 @@ public class BabelNetCandidateIdentification   extends JCasAnnotator_ImplBase {
 					if (pos !=null) {
 					LexicalItemConstituent c = newLexicalItemConstituent(aJCas, wordFormId, ELEMENT_WORDFORM,
 							nGram.begin, nGram.end);
+					if (ngramLemma.trim().isEmpty()) ngramLemma=ngram;
 					WSDItem w = newWsdItem(aJCas, wordFormId, nGram.begin, nGram.end, pos.toString(), ngramLemma);
 					//TODO This should be an array with all the tokens ? 
 					w.setConstituents(new FSArray(aJCas, 1));
@@ -234,16 +235,17 @@ public class BabelNetCandidateIdentification   extends JCasAnnotator_ImplBase {
            public static NGram concat(List<Token> tokens, int start, int end) {
                StringBuilder words = new StringBuilder();             
                StringBuilder lemmas= new StringBuilder();
-               
+               String rev="\u202C";
+               if (si.isRightToLeft()) rev="\u202B";             
                for (int i = start; i < end; i++){
-                   words.append((i > start ? " " : "") + tokens.get(i).getCoveredText());
-                   if (tokens.get(i).getLemma()!=null) lemmas.append((i > start ? " " : "") + tokens.get(i).getLemmaValue());
+                   words.append((i > start ? " " : "")+ rev + tokens.get(i).getCoveredText());
+                   if (tokens.get(i).getLemma()!=null) lemmas.append((i > start ? " " : "")+ rev + tokens.get(i).getLemmaValue());
                  }
                NGram res= new NGram();
                res.begin=tokens.get(start).getBegin();
                res.end=tokens.get(end-1).getEnd();
-               res.text=words.toString();
-               res.lemmas=lemmas.toString();
+               res.text=words.toString().replaceAll(rev, "");
+               res.lemmas=lemmas.toString().replaceAll(rev, "");
             		   
                return res;
            }

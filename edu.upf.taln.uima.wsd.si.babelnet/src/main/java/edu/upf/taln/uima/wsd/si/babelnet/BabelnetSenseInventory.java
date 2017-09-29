@@ -85,6 +85,7 @@ public class BabelnetSenseInventory extends SenseInventoryBase
 
 	public void setLanguage(String language) {
 		this.language=Language.valueOf(language);
+		
 	}
 
 	/**
@@ -219,7 +220,11 @@ public class BabelnetSenseInventory extends SenseInventoryBase
         	
         //lexiconsArr=(BabelSenseSource[]) lexicons.toArray();
     }
- 
+    
+    
+    public Boolean isRightToLeft(){
+    	return language.isRightToLeft();
+    }
     /**
      * @author Joan Codina
      * 
@@ -393,6 +398,44 @@ public class BabelnetSenseInventory extends SenseInventoryBase
     {
         try {
         BabelSynset synset = cachedSynsetGet(synsetId);
+        BabelGloss glossB = synset.getMainGloss(language);
+        String gloss=" "+synset.getMainSense(language).getLemma()+ "" ;
+        if (glossB==null)
+        {
+        	System.out.println("no gloss on synset" + synsetId + " "+synset.getMainSense(language).getLemma());
+        } else {
+        	gloss+= glossB.getGloss(); 
+        	return gloss;
+        }
+        String description = senseDescriptionFormat.replace("%d",gloss);
+        // TODO check how to write the format
+      
+        List<BabelExample> examples = synset.getExamples(language);
+			description = description.replace("%e", examples.toString());
+        List<BabelSense> senses  = synset.getSenses(language );
+        String ListSenses ="";
+        String sep=" ";
+        
+        for (BabelSense sense:senses){
+        	ListSenses+=sep + sense.getLemma();
+        }
+        description = description.replace("%w", ListSenses);
+        return description;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new SenseInventoryException(e);
+		}
+    }
+    
+    // produces the sense description in secondary language if available
+    //@override
+    public String getSenseDescription(String synsetId,boolean seclang)
+        throws SenseInventoryException
+    {
+    	if (!seclang) return getSenseDescription(synsetId);
+        try {
+        BabelSynset synset = cachedSynsetGet(synsetId);
         BabelGloss glossB = synset.getMainGloss(descLanguage);
         if (glossB==null) glossB = synset.getMainGloss(language);
         String gloss="-- "+synset.getMainSense(descLanguage).getLemma()+ "--" ;
@@ -400,9 +443,12 @@ public class BabelnetSenseInventory extends SenseInventoryBase
         {
         	System.out.println("no gloss on synset" + synsetId + " "+synset.getMainSense(language).getLemma());
         } else {
-        	gloss+= glossB.getGloss();
+        	gloss+= glossB.getGloss(); 
+        	return gloss;
         }
         String description = senseDescriptionFormat.replace("%d",gloss);
+        // TODO check how to write the format
+      
         List<BabelExample> examples = synset.getExamples(descLanguage);
         if (examples.isEmpty()) examples = synset.getExamples(language);
 			description = description.replace("%e", examples.toString());
@@ -422,7 +468,6 @@ public class BabelnetSenseInventory extends SenseInventoryBase
 			throw new SenseInventoryException(e);
 		}
     }
-
     //@Override
     public POS getPos(String senseId)
         throws SenseInventoryException
