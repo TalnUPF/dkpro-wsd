@@ -222,4 +222,9 @@ public class LsrSenseInventory
     {
         throw new UnsupportedOperationException();
     }
+
+	@Override
+	public String getSenseDescription(String senseId, boolean seclang) throws SenseInventoryException {
+		return getSenseDescription(senseId);
+	}
 }

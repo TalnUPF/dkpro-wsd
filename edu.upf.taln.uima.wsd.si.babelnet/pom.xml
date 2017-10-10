@@ -68,6 +68,11 @@
   		</artifactId>
   		<version>1.9.0-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+  		<artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
+  		<version>1.9.0-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
   <name>DKPro WSD - babelnet</name>
   <description>DKPro WSD modules for using babelnet as a sense inventory</description>
