@@ -1,4 +1,4 @@
-package edu.upf.taln.uima.wsd.si.babelnet.resource;
+package edu.upf.taln.uima.wsd.candidateDetection;
 
 
 import static org.apache.uima.fit.util.JCasUtil.select;
