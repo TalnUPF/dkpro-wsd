@@ -23,12 +23,10 @@
 		<version>10</version>
 	</parent>
  <repositories>
-        <!--  
         <repository>
             <id>taln</id>
             <url>http://maven-taln.s.upf.edu/repository/all</url>
         </repository>
-        -->
         <repository>
             <id>ukp-oss-releases</id>
             <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases</url>
@@ -36,8 +34,8 @@
         <repository>
             <id>ukp-oss-snapshots</id>
             <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots</url>
-        </repository>
-    </repositories>
+        </repository>   
+      </repositories>
   
   <properties>
         <dkpro.core.version>1.9.0-SNAPSHOT</dkpro.core.version>
@@ -46,7 +44,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tudarmstadt.ukp.dkpro.wsd</groupId>
 	<artifactId>de.tudarmstadt.ukp.dkpro.wsd</artifactId>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>1.3.1-taln</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>de.tudarmstadt.ukp.dkpro.wsd-asl</module>
