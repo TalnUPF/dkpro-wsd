@@ -62,14 +62,19 @@ public class WSDAnnotatorContextPOS
         // It might be better to pass a collection of annotations (for example,
         // lemmas)
     	try {
-        return wsdMethod.getDisambiguation(
-                wsdItem.getSubjectOfDisambiguation(),
-                POS.valueOf(wsdItem.getPos()), context.getCoveredText());
+
+    		return wsdMethod.getDisambiguation(
+    				wsdItem.getSubjectOfDisambiguation(),
+    				POS.valueOf(wsdItem.getPos()), context.getCoveredText());
+
     	} catch (Exception e){
-    		 System.out.println("Exception " + wsdItem.getCoveredText()+ "--"+ wsdItem.getPos());
-    		 throw e;
-    	}
-    	
+    	    // System.out.println("Exception " + wsdItem.getCoveredText()+ "--"+ wsdItem.getPos());
+    		// as pos is unknown use NOUN, or try it with null... 
+    	    return wsdMethod.getDisambiguation(wsdItem.getSubjectOfDisambiguation(),POS.NOUN,context.getCoveredText()); 
+        	// or  throw exception 
+        	// throw e;
+        }
+
     }
 
     @Override
