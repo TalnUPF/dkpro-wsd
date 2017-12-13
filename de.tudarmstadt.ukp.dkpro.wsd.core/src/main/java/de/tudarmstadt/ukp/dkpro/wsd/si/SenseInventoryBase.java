@@ -72,10 +72,19 @@ public abstract class SenseInventoryBase
     }
     
     @Override
+<<<<<<< HEAD
 	public String getSenseDescription(String senseId,boolean seclang)
             throws SenseInventoryException
      {
     	   return  getSenseDescription(senseId);
     }
 
+=======
+    public String getSenseDescription(String senseId,boolean seclang)
+        throws SenseInventoryException
+    {
+    	return  getSenseDescription(senseId);
+    }
+    
+>>>>>>> refs/remotes/origin/multilingual
 }

@@ -117,6 +117,7 @@ public interface SenseInventory
      */
     String getSenseDescription(String senseId,boolean seclang)
         throws SenseInventoryException;
+        
     /**
      * @param senseId
      * @return The part of speech of the sense represented by the given senseId.
