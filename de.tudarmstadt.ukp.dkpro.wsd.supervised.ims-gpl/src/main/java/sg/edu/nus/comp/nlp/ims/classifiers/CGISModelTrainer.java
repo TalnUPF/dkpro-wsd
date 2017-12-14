@@ -23,6 +23,7 @@ import java.io.Reader;
 import java.io.StringReader;
 
 import opennlp.maxent.*;
+import opennlp.model.EventStream;
 import sg.edu.nus.comp.nlp.ims.io.CGISLexeltWriter;
 import sg.edu.nus.comp.nlp.ims.io.ILexeltWriter;
 import sg.edu.nus.comp.nlp.ims.lexelt.CModelInfo;

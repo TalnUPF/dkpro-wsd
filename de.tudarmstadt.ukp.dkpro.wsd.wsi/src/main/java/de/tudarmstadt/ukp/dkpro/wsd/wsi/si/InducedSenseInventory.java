@@ -121,7 +121,13 @@ public class InducedSenseInventory
         }
         return resBuilder.toString().trim();
     }
+	@Override
+	public String getSenseDescription(String senseId, boolean seclang) throws SenseInventoryException {
+		// TODO Auto-generated method stub
+		return getSenseDescription(senseId);
+	}
 
+    
     @Override
     public String getSenseInventoryName()
     {
@@ -230,4 +236,5 @@ public class InducedSenseInventory
     {
         throw new UnsupportedOperationException();
     }
+
 }

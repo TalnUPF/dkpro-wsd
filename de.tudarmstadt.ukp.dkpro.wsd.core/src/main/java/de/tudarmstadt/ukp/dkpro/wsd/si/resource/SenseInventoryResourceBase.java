@@ -162,19 +162,12 @@ public abstract class SenseInventoryResourceBase
 
     @Override
     public String getSenseDescription(String senseId, boolean lang)
-<<<<<<< HEAD
-        throws SenseInventoryException
-    {
-        return inventory.getSenseDescription(senseId,lang);
-    }
 
-=======
     	throws SenseInventoryException
     {
     	return inventory.getSenseDescription(senseId,lang);
     }
     
->>>>>>> refs/remotes/origin/multilingual
     @Override
     public POS getPos(String senseId)
         throws SenseInventoryException

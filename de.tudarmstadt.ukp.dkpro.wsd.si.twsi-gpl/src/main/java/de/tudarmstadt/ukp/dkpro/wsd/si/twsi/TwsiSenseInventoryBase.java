@@ -114,7 +114,11 @@ public class TwsiSenseInventoryBase
 
         return StringUtils.join(synonyms, ", ");
     }
-
+	@Override
+	public String getSenseDescription(String senseId, boolean seclang) throws SenseInventoryException {
+		// TODO Auto-generated method stub
+		return getSenseDescription(senseId);
+	}
     @Override
     public Map<String, List<String>> getSenseInventory()
         throws SenseInventoryException
@@ -196,4 +200,6 @@ public class TwsiSenseInventoryBase
     {
         throw new UnsupportedAddressTypeException();
     }
+
+
 }
