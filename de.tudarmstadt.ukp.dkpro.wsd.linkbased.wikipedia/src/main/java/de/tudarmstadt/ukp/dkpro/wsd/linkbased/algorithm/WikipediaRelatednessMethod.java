@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2016
+ * Copyright 2017
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
  *
@@ -35,7 +35,7 @@ import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.si.linkdatabase.LinkDatabaseInventoryResource;
 
 /**
- * An disambiguation algorithm based on the relatedness of two links, which is based on the formula by Milne & Witten
+ * An disambiguation algorithm based on the relatedness of two links, which is based on the formula by Milne &amp; Witten
  *
  * @author nico.erbs@gmail.com
  *

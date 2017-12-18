@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2016
+ * Copyright 2017
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
  *
@@ -115,12 +115,6 @@ public abstract class WordNetSenseInventoryBase
 
     /**
      * Given a synset offset, lemma, and POS, returns a corresponding sense key.
-     *
-     * @param senseId
-     * @param lemma
-     * @param POS
-     * @return
-     * @throws SenseInventoryException
      */
     protected String getWordNetSenseKey(long offset, String lemma,
             net.sf.extjwnl.data.POS pos)

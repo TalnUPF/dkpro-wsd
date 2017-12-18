@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2016
+ * Copyright 2017
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
  *
@@ -26,7 +26,7 @@ import java.io.IOException;
  * A {@link AbstractSingleExactMatchEvaluator} with plain text output.
  *
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
- * @author <a href="mailto:nadolskyy@ukp.informatik.tu-darmstadt.de>">Andriy Nadolskyy</a>
+ * @author <a href="mailto:nadolskyy@ukp.informatik.tu-darmstadt.de">Andriy Nadolskyy</a>
  */
 public class SingleExactMatchEvaluatorText
     extends AbstractSingleExactMatchEvaluator

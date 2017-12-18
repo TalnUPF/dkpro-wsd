@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2016
+ * Copyright 2017
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
  *
@@ -38,7 +38,7 @@ import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.UndirectedSparseGraph;
 
 /**
- * An implementation of the unsupervised graph connectivity WSD from Navigli &
+ * An implementation of the unsupervised graph connectivity WSD from Navigli &amp;
  * Lapata (2010).
  *
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>

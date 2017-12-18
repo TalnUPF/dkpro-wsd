@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2016
+ * Copyright 2017
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
  *
@@ -176,9 +176,6 @@ public abstract class AbstractWSDEvaluator
 
     /**
      * Returns the senses with the highest non-zero confidence score.
-     *
-     * @param wsdResult
-     * @return
      */
     protected Set<Sense> getBestSenses(FSArray senseArray)
     {
