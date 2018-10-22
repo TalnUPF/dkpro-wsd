@@ -31,10 +31,10 @@ import org.junit.Test;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import de.tudarmstadt.ukp.dkpro.wsd.annotator.WSDAnnotatorCollectiveCandidate;
-import de.tudarmstadt.ukp.dkpro.wsd.resource.WSDResourceCollectiveWSDItem;
+import de.tudarmstadt.ukp.dkpro.wsd.resource.WSDResourceCollectiveCandidate;
 import edu.upf.taln.uima.wsd.si.babelnet.resource.BabelnetSenseInventoryResource;
 
-public class GerardTest {
+public class TALNSenseBaselineTest {
 
     @Test
     public void test() throws Exception {
@@ -51,11 +51,11 @@ public class GerardTest {
 				BabelnetSenseInventoryResource.PARAM_BABELNET_LANG, "EN", 
 				BabelnetSenseInventoryResource.PARAM_BABELNET_DESCLANG, "EN");
 	    
-	    ExternalResourceDescription mfsBaselineResourceBabelNet = createExternalResourceDescription(WSDResourceCollectiveWSDItem.class,
-	    		WSDResourceCollectiveWSDItem.SENSE_INVENTORY_RESOURCE, BabelNet,
-	    		WSDResourceCollectiveWSDItem.DISAMBIGUATION_METHOD, GerardSenseBaseline.class.getName(),
-	    		WSDResourceCollectiveWSDItem.PARAM_FREQUENCIES_FILE, "/home/ivan/misc/tensor/resources/freqs.bin",
-	    		WSDResourceCollectiveWSDItem.PARAM_SIMILARITIES_FILE, "/home/ivan/misc/tensor/resources/sensembed-vectors-merged_bin");
+	    ExternalResourceDescription mfsBaselineResourceBabelNet = createExternalResourceDescription(WSDResourceCollectiveCandidate.class,
+	    		WSDResourceCollectiveCandidate.SENSE_INVENTORY_RESOURCE, BabelNet,
+	    		WSDResourceCollectiveCandidate.DISAMBIGUATION_METHOD, TALNSenseBaseline.class.getName(),
+	    		WSDResourceCollectiveCandidate.PARAM_FREQUENCIES_FILE, "/home/ivan/misc/tensor/resources/freqs.bin",
+	    		WSDResourceCollectiveCandidate.PARAM_SIMILARITIES_FILE, "/home/ivan/misc/tensor/resources/sensembed-vectors-merged_bin");
 		
 		AnalysisEngineDescription mfsBaselineBabelNet = createEngineDescription(WSDAnnotatorCollectiveCandidate.class,
 				WSDAnnotatorCollectiveCandidate.WSD_ALGORITHM_RESOURCE, mfsBaselineResourceBabelNet,

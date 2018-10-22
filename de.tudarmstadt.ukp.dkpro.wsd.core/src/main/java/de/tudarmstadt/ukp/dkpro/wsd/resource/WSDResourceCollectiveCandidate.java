@@ -42,7 +42,7 @@ import edu.upf.taln.textplanning.weighting.WeightingFunction;
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
  *
  */
-public class WSDResourceCollectiveWSDItem
+public class WSDResourceCollectiveCandidate
     extends WSDResourceBasic
     implements WSDAlgorithmCollectiveCandidate
 {

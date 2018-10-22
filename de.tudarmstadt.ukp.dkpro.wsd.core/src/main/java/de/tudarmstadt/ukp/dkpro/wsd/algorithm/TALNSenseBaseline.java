@@ -18,6 +18,7 @@
 
 package de.tudarmstadt.ukp.dkpro.wsd.algorithm;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -40,6 +41,13 @@ import edu.upf.taln.textplanning.similarity.SimilarityFunction;
 import edu.upf.taln.textplanning.structures.Meaning;
 import edu.upf.taln.textplanning.structures.Mention;
 import edu.upf.taln.textplanning.weighting.WeightingFunction;
+import edu.upf.taln.uima.wsd.si.babelnet.BabelnetSenseInventory;
+import edu.upf.taln.uima.wsd.si.babelnet.resource.BabelnetSenseInventoryResource;
+import it.uniroma1.lcl.babelnet.BabelSynset;
+import it.uniroma1.lcl.babelnet.BabelSynsetID;
+import it.uniroma1.lcl.babelnet.BabelSynsetType;
+import it.uniroma1.lcl.babelnet.InvalidBabelSynsetIDException;
+import it.uniroma1.lcl.jlt.util.Language;
 
 /**
  * A word sense disambiguation algorithm which, given a subject of
@@ -49,13 +57,13 @@ import edu.upf.taln.textplanning.weighting.WeightingFunction;
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
  *
  */
-public class GerardSenseBaseline
+public class TALNSenseBaseline
     extends AbstractWSDAlgorithm
     implements WSDAlgorithmCollectiveCandidate
 {
     private final Logger logger = Logger.getLogger(getClass());
 
-    public GerardSenseBaseline(SenseInventory inventory)
+    public TALNSenseBaseline(SenseInventory inventory)
     {
         super(inventory);
     }
@@ -68,17 +76,31 @@ public class GerardSenseBaseline
 		
 		for (WSDItem item : items) {
 			String sod = item.getSubjectOfDisambiguation();
-			List<String> senses = inventory.getSenses(sod);
-			//String itemId = String.valueOf(item.hashCode());
+			de.tudarmstadt.ukp.dkpro.wsd.si.POS wsdPos = de.tudarmstadt.ukp.dkpro.wsd.si.POS.valueOf(item.getPos());
 			
 			String lemma = JCasUtil.selectCovered(Lemma.class, item).get(0).getValue();
 			String pos = JCasUtil.selectCovered(POS.class, item).get(0).getPosValue();
+			
+			List<String> senses = inventory.getSenses(sod, wsdPos);
+			//String itemId = String.valueOf(item.hashCode());
 			
 			Type type = Type.Other; //TODO: get entity type
 			Mention mention = new Mention("0", Pair.of(item.getBegin(), item.getEnd()), item.getCoveredText(), lemma, pos, type);
 			
 			for (String sense : senses) {
-				Meaning meaning = Meaning.get(/*itemId+"-"+sense*/sense, sense, false); 
+				Meaning meaning;
+				try {
+					BabelnetSenseInventoryResource bnir = (BabelnetSenseInventoryResource)inventory;
+					BabelnetSenseInventory bni = bnir.getInventory();
+					BabelSynset synset = bni.getUnderlyingResource().getSynset(new BabelSynsetID(sense));
+					String label = synset.getSenses(Language.EN).iterator().next().toString();
+					boolean isNameEntiry = synset.getSynsetType() == BabelSynsetType.NAMED_ENTITY;
+					
+					meaning = Meaning.get(sense, label, isNameEntiry); 
+				} catch (IOException | InvalidBabelSynsetIDException | ClassCastException e) {
+					e.printStackTrace();
+					meaning = Meaning.get(sense, sense, false); 
+				} 
 				
 				Candidate candidate = new Candidate(meaning, mention);
 				candidates.add(candidate);
