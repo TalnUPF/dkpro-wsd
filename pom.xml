@@ -36,6 +36,19 @@
             <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots</url>
         </repository>   
       </repositories>
+      
+      <distributionManagement>
+		<repository>
+			<id>maven-releases</id>
+			<name>Internal Release Repository</name>
+			<url>http://maven-taln.s.upf.edu/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>maven-snapshots</id>
+			<name>Internal Snapshot Repository</name>
+			<url>http://maven-taln.s.upf.edu/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
   
   <properties>
         <dkpro.core.version>1.9.1</dkpro.core.version>
@@ -44,7 +57,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tudarmstadt.ukp.dkpro.wsd</groupId>
 	<artifactId>de.tudarmstadt.ukp.dkpro.wsd</artifactId>
-	<version>1.3.1-taln</version>
+	<version>1.3.2-taln</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>de.tudarmstadt.ukp.dkpro.wsd-asl</module>
