@@ -107,7 +107,6 @@
 	    <groupId>edu.upf.taln.uima.wsd</groupId>
 		<artifactId>edu.upf.taln.uima.wsd.si.babelnet</artifactId>
 		<version>0.1.0</version>
-		<scope>test</scope>
 	</dependency>
   </dependencies>
   
