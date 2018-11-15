@@ -65,7 +65,7 @@ public class WSDAnnotatorCollectiveCandidate
 				.getDisambiguation(wsdItems, null, null);
 		Map<WSDItem, Map<String, Double>> resultsByWSDItem = new HashMap<WSDItem, Map<String, Double>>();
 		for (WSDItem wsdItem : wsdItems) {
-			Map<String, Double> senseMap = resultsByToken.get(wsdItem.getSubjectOfDisambiguation());
+			Map<String, Double> senseMap = resultsByToken.get(wsdItem.getCoveredText());
 			if (senseMap != null) {
 				resultsByWSDItem.put(wsdItem, senseMap);
 			}
