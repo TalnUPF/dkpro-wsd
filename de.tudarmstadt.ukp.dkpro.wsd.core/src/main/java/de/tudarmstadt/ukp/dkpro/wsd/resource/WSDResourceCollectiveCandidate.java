@@ -18,23 +18,23 @@
 
 package de.tudarmstadt.ukp.dkpro.wsd.resource;
 
-import java.io.File;
-import java.util.Collection;
-import java.util.Map;
-
-import org.apache.uima.fit.descriptor.ConfigurationParameter;
-import org.apache.uima.resource.ResourceInitializationException;
-
 import de.tudarmstadt.ukp.dkpro.wsd.algorithm.WSDAlgorithmCollectiveCandidate;
 import de.tudarmstadt.ukp.dkpro.wsd.algorithm.WSDAlgorithmCollectivePOS;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
-import edu.upf.taln.textplanning.corpora.CompactFrequencies;
-import edu.upf.taln.textplanning.similarity.RandomAccessVectorsSimilarity;
-import edu.upf.taln.textplanning.similarity.SimilarityFunction;
-import edu.upf.taln.textplanning.utils.Serializer;
-import edu.upf.taln.textplanning.weighting.TFIDF;
-import edu.upf.taln.textplanning.weighting.WeightingFunction;
+import edu.upf.taln.textplanning.core.corpora.CompactFrequencies;
+import edu.upf.taln.textplanning.core.similarity.RandomAccessVectorsSimilarity;
+import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
+import edu.upf.taln.textplanning.core.utils.Serializer;
+import edu.upf.taln.textplanning.core.weighting.TFIDF;
+import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
+import org.apache.uima.fit.descriptor.ConfigurationParameter;
+import org.apache.uima.resource.ResourceInitializationException;
+
+import java.io.File;
+import java.util.Collection;
+import java.util.Map;
+
 
 /**
  * A resource wrapping algorithms of type {@link WSDAlgorithmCollectivePOS}
@@ -55,15 +55,15 @@ public class WSDResourceCollectiveCandidate
     @ConfigurationParameter(name = PARAM_SIMILARITIES_FILE, mandatory = true, description = "")
     protected String similaritiesFile;
     
-    WeightingFunction weightingFunction;
-	SimilarityFunction similarityFunction;
+    private WeightingFunction weightingFunction;
+	private SimilarityFunction similarityFunction;
     
 	public void loadFrequencyAndSimilarity() throws ResourceInitializationException {
 
 		try {
-	        //CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
-	        this.weightingFunction = new NoWeights(); //TFIDF(corpus, i -> true);
-	        this.similarityFunction = new RandomAccessVectorsSimilarity(new File(similaritiesFile).toPath());
+	        CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
+	        this.weightingFunction = new TFIDF(corpus, i -> true);
+	        this.similarityFunction = RandomAccessVectorsSimilarity.create(new File(similaritiesFile).toPath());
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ResourceInitializationException(e);

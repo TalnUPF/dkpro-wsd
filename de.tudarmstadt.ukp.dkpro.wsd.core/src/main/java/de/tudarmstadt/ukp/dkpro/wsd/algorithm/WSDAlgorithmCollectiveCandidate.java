@@ -23,8 +23,8 @@ import java.util.Map;
 
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
-import edu.upf.taln.textplanning.similarity.SimilarityFunction;
-import edu.upf.taln.textplanning.weighting.WeightingFunction;
+import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
+import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
 
 /**
  * An interface for word sense disambiguation algorithms which disambiguate an
