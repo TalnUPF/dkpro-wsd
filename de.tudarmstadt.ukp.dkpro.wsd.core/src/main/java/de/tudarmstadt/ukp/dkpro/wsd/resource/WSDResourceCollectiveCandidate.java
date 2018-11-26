@@ -61,8 +61,8 @@ public class WSDResourceCollectiveCandidate
 	public void loadFrequencyAndSimilarity() throws ResourceInitializationException {
 
 		try {
-	        CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
-	        this.weightingFunction = new TFIDF(corpus, i -> true);
+	        //CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
+	        this.weightingFunction = new NoWeights(); //TFIDF(corpus, i -> true);
 	        this.similarityFunction = new RandomAccessVectorsSimilarity(new File(similaritiesFile).toPath());
 		} catch (Exception e) {
 			e.printStackTrace();
