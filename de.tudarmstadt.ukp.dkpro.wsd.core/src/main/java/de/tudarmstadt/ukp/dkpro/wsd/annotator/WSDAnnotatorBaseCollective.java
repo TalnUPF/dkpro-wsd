@@ -98,8 +98,7 @@ public abstract class WSDAnnotatorBaseCollective
                     if (maxItemsAttempted >= 0 && numItemsAttempted++ >= maxItemsAttempted) {
                         return;
                     }
-                    setWSDItem(aJCas, wsdItem,
-                            disambiguationResults.get(wsdItem));
+                    setWSDItem(aJCas, wsdItem, disambiguationResults.get(wsdItem));
                 }
             }
         }

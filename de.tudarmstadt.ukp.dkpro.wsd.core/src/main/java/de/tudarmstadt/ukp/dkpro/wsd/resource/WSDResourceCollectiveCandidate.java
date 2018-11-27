@@ -40,40 +40,35 @@ import java.util.Map;
  * A resource wrapping algorithms of type {@link WSDAlgorithmCollectivePOS}
  *
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
- *
  */
 public class WSDResourceCollectiveCandidate
     extends WSDResourceBasic
     implements WSDAlgorithmCollectiveCandidate
 {
-
 	public final static String PARAM_FREQUENCIES_FILE = "frequenciesFile";
-    @ConfigurationParameter(name = PARAM_FREQUENCIES_FILE, mandatory = true, description = "")
-    protected String frequenciesFile;
-    
-    public final static String PARAM_SIMILARITIES_FILE = "similaritiesFile";
-    @ConfigurationParameter(name = PARAM_SIMILARITIES_FILE, mandatory = true, description = "")
-    protected String similaritiesFile;
-    
-    private WeightingFunction weightingFunction;
+	@ConfigurationParameter(name = PARAM_FREQUENCIES_FILE, mandatory = true, description = "")
+	private String frequenciesFile;
+	public final static String PARAM_SIMILARITIES_FILE = "similaritiesFile";
+	@ConfigurationParameter(name = PARAM_SIMILARITIES_FILE, mandatory = true, description = "")
+	private String similaritiesFile;
+	private WeightingFunction weightingFunction;
 	private SimilarityFunction similarityFunction;
-    
-	public void loadFrequencyAndSimilarity() throws ResourceInitializationException {
 
-		try {
-	        CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
-	        this.weightingFunction = new TFIDF(corpus, i -> true);
-	        this.similarityFunction = RandomAccessVectorsSimilarity.create(new File(similaritiesFile).toPath());
-		} catch (Exception e) {
-			e.printStackTrace();
+	@Override
+	public void afterResourcesInitialized() throws ResourceInitializationException
+	{
+		super.afterResourcesInitialized();
+
+		try
+		{
+			CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
+			this.weightingFunction = new TFIDF(corpus, i -> true);
+			this.similarityFunction = RandomAccessVectorsSimilarity.create(new File(similaritiesFile).toPath());
+		}
+		catch (Exception e)
+		{
 			throw new ResourceInitializationException(e);
 		}
-    }
-	
-	@Override
-	public void afterResourcesInitialized() throws ResourceInitializationException{
-		super.afterResourcesInitialized();
-		loadFrequencyAndSimilarity();
 	}
 
 	@Override

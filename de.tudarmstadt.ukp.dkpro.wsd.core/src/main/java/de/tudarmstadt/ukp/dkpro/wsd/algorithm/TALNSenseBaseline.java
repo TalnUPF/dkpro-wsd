@@ -24,7 +24,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import edu.upf.taln.textplanning.core.TextPlanner;
 import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
 import edu.upf.taln.textplanning.core.structures.Candidate;
@@ -54,36 +56,36 @@ import it.uniroma1.lcl.jlt.util.Language;
  *
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
  */
-public class TALNSenseBaseline
-		extends AbstractWSDAlgorithm
-		implements WSDAlgorithmCollectiveCandidate
+public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgorithmCollectiveCandidate
 {
 	public TALNSenseBaseline(SenseInventory inventory)
 	{
 		super(inventory);
+
 	}
 
-
 	@Override
-	public Map<String, Map<String, Double>> getDisambiguation(Collection<WSDItem> items, WeightingFunction weightingFunction, SimilarityFunction similarityFunction) throws SenseInventoryException
+	public Map<String, Map<String, Double>> getDisambiguation(Collection<WSDItem> items, WeightingFunction weightingFunction,
+	                                                          SimilarityFunction similarityFunction) throws SenseInventoryException
 	{
 
 		List<Candidate> candidates = new ArrayList<>();
 
 		for (WSDItem item : items)
 		{
+			final Sentence sentence = JCasUtil.selectCovering(Sentence.class, item).get(0);
+			final String pos = item.getPos();
+			String lemma = JCasUtil.selectCovered(Lemma.class, item).stream()
+					.map(Lemma::getValue)
+					.collect(Collectors.joining(" "));
+			// TODO NE and type info for mention should come from NER
+			Mention mention = new Mention(sentence.getId(), Pair.of(item.getBegin(), item.getEnd()), item.getCoveredText(),
+					lemma, pos, false, "");
+
 			String sod = item.getSubjectOfDisambiguation();
 			de.tudarmstadt.ukp.dkpro.wsd.si.POS wsdPos = de.tudarmstadt.ukp.dkpro.wsd.si.POS.valueOf(item.getPos());
 
-			String lemma = JCasUtil.selectCovered(Lemma.class, item).get(0).getValue();
-			String pos = JCasUtil.selectCovered(POS.class, item).get(0).getPosValue();
-
-			List<String> senses = inventory.getSenses(sod, wsdPos);
-			//String itemId = String.valueOf(item.hashCode());
-
-			Mention mention = new Mention("0", Pair.of(item.getBegin(), item.getEnd()), item.getCoveredText(), lemma, pos, false, "");
-
-			for (String sense : senses)
+			for (String sense : inventory.getSenses(sod, wsdPos))
 			{
 				Meaning meaning;
 				try
@@ -109,7 +111,7 @@ public class TALNSenseBaseline
 
 		TextPlanner.rankMeanings(candidates, weightingFunction, similarityFunction, new TextPlanner.Options());
 
-		//TODO test
+
 		Map<String, Map<String, Double>> result = new HashMap<>();
 		for (Candidate candidate : candidates)
 		{
@@ -121,9 +123,7 @@ public class TALNSenseBaseline
 				senses.put(candidate.getMeaning().getReference(), candidate.getMeaning().getWeight());
 			}
 			else
-			{
 				senses.put(candidate.getMeaning().getReference(), candidate.getMeaning().getWeight());
-			}
 			result.put(candidate.getMention().getSurface_form(), senses);
 		}
 

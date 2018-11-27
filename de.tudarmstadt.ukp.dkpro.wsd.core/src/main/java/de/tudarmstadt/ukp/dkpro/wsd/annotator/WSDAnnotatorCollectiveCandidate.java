@@ -36,10 +36,8 @@ import java.util.Map;
  *
  * @author <a href="mailto:miller@ukp.informatik.tu-darmstadt.de">Tristan Miller</a>
  */
-public class WSDAnnotatorCollectiveCandidate
-		extends WSDAnnotatorBaseCollective
+public class WSDAnnotatorCollectiveCandidate extends WSDAnnotatorBaseCollective
 {
-
 	public final static String WSD_ALGORITHM_RESOURCE = "WSDAlgorithmResource";
 	@ExternalResource(key = WSD_ALGORITHM_RESOURCE)
 	protected WSDAlgorithmCollectiveCandidate wsdMethod;
@@ -49,37 +47,30 @@ public class WSDAnnotatorCollectiveCandidate
 	{
 		super.initialize(context);
 		inventory = wsdMethod.getSenseInventory();
+		normalizeConfidence = false;
 	}
 
 	@Override
-	protected Map<WSDItem, Map<String, Double>> getDisambiguation(Collection<WSDItem> wsdItems)
-			throws SenseInventoryException
+	protected Map<WSDItem, Map<String, Double>> getDisambiguation(Collection<WSDItem> wsdItems) throws SenseInventoryException
 	{
-		Map<String, Map<String, Double>> resultsByToken = wsdMethod
-				.getDisambiguation(wsdItems, null, null);
-		Map<WSDItem, Map<String, Double>> resultsByWSDItem = new HashMap<WSDItem, Map<String, Double>>();
+		Map<String, Map<String, Double>> resultsByToken = wsdMethod.getDisambiguation(wsdItems, null, null);
+		Map<WSDItem, Map<String, Double>> resultsByWSDItem = new HashMap<>();
 		for (WSDItem wsdItem : wsdItems)
 		{
 			Map<String, Double> senseMap = resultsByToken.get(wsdItem.getCoveredText());
 			if (senseMap != null)
-			{
 				resultsByWSDItem.put(wsdItem, senseMap);
-			}
 		}
+
 		return resultsByWSDItem;
 	}
 
 	@Override
-	protected String getDisambiguationMethod() throws SenseInventoryException
+	protected String getDisambiguationMethod()
 	{
 		if (disambiguationMethodName != null)
-		{
 			return disambiguationMethodName;
-		}
 		else
-		{
 			return wsdMethod.getDisambiguationMethod();
-		}
 	}
-
 }

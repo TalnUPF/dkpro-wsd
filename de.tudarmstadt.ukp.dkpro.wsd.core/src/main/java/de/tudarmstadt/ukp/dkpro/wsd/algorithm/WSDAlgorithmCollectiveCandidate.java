@@ -36,11 +36,10 @@ import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
  * @author <a href="mailto:erbs@ukp.informatik.tu-darmstadt.de">Nicolai Erbs</a>
  *
  */
-public interface WSDAlgorithmCollectiveCandidate
-	extends WSDAlgorithm
+public interface WSDAlgorithmCollectiveCandidate extends WSDAlgorithm
 {
-	public Map<String, Map<String, Double>> getDisambiguation(
-			Collection<WSDItem> items, WeightingFunction weightingFunction, SimilarityFunction similarityFunction)
-		throws SenseInventoryException;
+	Map<String, Map<String, Double>> getDisambiguation(Collection<WSDItem> items,
+	                                                   WeightingFunction weightingFunction,
+	                                                   SimilarityFunction similarityFunction) throws SenseInventoryException;
 
 }
