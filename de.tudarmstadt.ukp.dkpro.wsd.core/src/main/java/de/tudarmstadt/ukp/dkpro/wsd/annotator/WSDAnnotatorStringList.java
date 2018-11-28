@@ -35,7 +35,7 @@ import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
  *
  * An annotator for disambiguating a list of sods collectively.
  * This is especially useful to wrap an external component that disambiguates a document based on a list of string.
- * Note that the annotator returns the same sense for identical input string (or mention).
+ * Note that the annotator returns the same sense for identical io string (or mention).
  * This reflects the one-sense-per-discourse hypothesis.
  * @author nico.erbs@gmail.com
  *

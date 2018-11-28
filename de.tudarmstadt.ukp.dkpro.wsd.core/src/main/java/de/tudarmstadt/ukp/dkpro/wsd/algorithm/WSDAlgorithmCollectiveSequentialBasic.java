@@ -26,7 +26,7 @@ import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 
 /**
  * An interface for word sense disambiguation algorithms which disambiguate
- * sequences of the document at once. The algorithms take as input a collection
+ * sequences of the document at once. The algorithms take as io a collection
  * of collections of subjects of disambiguation (typically lemmas) represented
  * by {@link String}s. Each subject is assigned a mapping of sense IDs to
  * confidence values.
