@@ -19,11 +19,7 @@
 package de.tudarmstadt.ukp.dkpro.wsd.algorithm;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
@@ -36,7 +32,6 @@ import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.uima.fit.util.JCasUtil;
 
-import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventory;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
@@ -79,7 +74,7 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 					.map(Lemma::getValue)
 					.collect(Collectors.joining(" "));
 			// TODO NE and type info for mention should come from NER
-			Mention mention = new Mention(sentence.getId(), Pair.of(item.getBegin(), item.getEnd()), item.getCoveredText(),
+			Mention mention = Mention.get(String.valueOf(sentence.getBegin()), Pair.of(item.getBegin(), item.getEnd()), item.getCoveredText(),
 					lemma, pos, false, "");
 
 			String sod = item.getSubjectOfDisambiguation();
