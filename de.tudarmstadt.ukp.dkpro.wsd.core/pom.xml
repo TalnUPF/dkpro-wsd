@@ -93,12 +93,12 @@
       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
       <artifactId>de.tudarmstadt.ukp.dkpro.core.api.metadata-asl</artifactId>
     </dependency>
-    <dependency>
-        <groupId>edu.upf.taln.textplanning</groupId>
-        <artifactId>core</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
+      <dependency>
+          <groupId>edu.upf.taln.textplanning</groupId>
+          <artifactId>common</artifactId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
 		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 		<artifactId>de.tudarmstadt.ukp.dkpro.core.io.xmi-asl</artifactId>
 		<scope>test</scope>
@@ -122,6 +122,19 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</pluginManagement>
   </build>

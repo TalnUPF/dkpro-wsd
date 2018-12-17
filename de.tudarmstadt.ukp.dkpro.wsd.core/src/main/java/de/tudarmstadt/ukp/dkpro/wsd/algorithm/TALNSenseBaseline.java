@@ -22,14 +22,18 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.google.common.base.Stopwatch;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import edu.upf.taln.textplanning.core.TextPlanner;
 import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
 import edu.upf.taln.textplanning.core.structures.Candidate;
 import edu.upf.taln.textplanning.core.structures.Meaning;
 import edu.upf.taln.textplanning.core.structures.Mention;
+import edu.upf.taln.textplanning.core.utils.DebugUtils;
 import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.uima.fit.util.JCasUtil;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma;
@@ -53,6 +57,8 @@ import it.uniroma1.lcl.jlt.util.Language;
  */
 public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgorithmCollectiveCandidate
 {
+	private final static Logger log = LogManager.getLogger();
+
 	public TALNSenseBaseline(SenseInventory inventory)
 	{
 		super(inventory);
@@ -64,7 +70,11 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 	                                                          SimilarityFunction similarityFunction) throws SenseInventoryException
 	{
 
+		log.info("Looking up Babelnet synsets for " + items.size() + " items");
+		int counter = 0;
+		final Stopwatch timer = Stopwatch.createStarted();
 		List<Candidate> candidates = new ArrayList<>();
+
 
 		for (WSDItem item : items)
 		{
@@ -102,10 +112,25 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 				Candidate candidate = new Candidate(meaning, mention);
 				candidates.add(candidate);
 			}
+
+			if (++counter % 1000 == 0)
+				log.info(counter + " items looked up out of " + items.size());
 		}
+		log.info(candidates.size() + " candidate meanings collected in " + timer.stop());
 
 		TextPlanner.rankMeanings(candidates, weightingFunction, similarityFunction, new TextPlanner.Options());
 
+//		final Map<String, List<Candidate>> candidates_by_mention = candidates.stream()
+//				.collect(Collectors.groupingBy(c -> c.getMention().getSurface_form()));
+//		candidates_by_mention.keySet()
+//				.forEach(mention ->
+//				{
+//					log.info("Meanings for mention " + mention);
+//					candidates_by_mention.get(mention).stream()
+//						.map(Candidate::getMeaning)
+//						.sorted(Comparator.comparingDouble(Meaning::getWeight).reversed())
+//						.forEach(meaning -> log.debug("\t" + meaning + " " + DebugUtils.printDouble(meaning.getWeight()) + " " + similarityFunction.isDefinedFor(meaning.getReference())));
+//				});
 
 		Map<String, Map<String, Double>> result = new HashMap<>();
 		for (Candidate candidate : candidates)
