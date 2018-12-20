@@ -29,7 +29,6 @@ import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
 import edu.upf.taln.textplanning.core.structures.Candidate;
 import edu.upf.taln.textplanning.core.structures.Meaning;
 import edu.upf.taln.textplanning.core.structures.Mention;
-import edu.upf.taln.textplanning.core.utils.DebugUtils;
 import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
@@ -40,13 +39,6 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventory;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
-import edu.upf.taln.uima.wsd.si.babelnet.BabelnetSenseInventory;
-import edu.upf.taln.uima.wsd.si.babelnet.resource.BabelnetSenseInventoryResource;
-import it.uniroma1.lcl.babelnet.BabelSynset;
-import it.uniroma1.lcl.babelnet.BabelSynsetID;
-import it.uniroma1.lcl.babelnet.BabelSynsetType;
-import it.uniroma1.lcl.babelnet.InvalidBabelSynsetIDException;
-import it.uniroma1.lcl.jlt.util.Language;
 
 /**
  * A word sense disambiguation algorithm which, given a subject of
@@ -93,7 +85,7 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 			for (String sense : inventory.getSenses(sod, wsdPos))
 			{
 				Meaning meaning;
-				try
+				/*try
 				{
 					BabelnetSenseInventoryResource bnir = (BabelnetSenseInventoryResource) inventory;
 					BabelnetSenseInventory bni = bnir.getInventory();
@@ -105,9 +97,9 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 				}
 				catch (IOException | InvalidBabelSynsetIDException | ClassCastException e)
 				{
-					e.printStackTrace();
+					e.printStackTrace();*/
 					meaning = Meaning.get(sense, sense, false);
-				}
+				//}
 
 				Candidate candidate = new Candidate(meaning, mention);
 				candidates.add(candidate);

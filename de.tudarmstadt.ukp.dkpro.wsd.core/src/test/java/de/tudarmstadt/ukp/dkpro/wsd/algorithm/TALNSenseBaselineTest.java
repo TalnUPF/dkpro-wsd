@@ -32,11 +32,11 @@ import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import de.tudarmstadt.ukp.dkpro.wsd.annotator.WSDAnnotatorCollectiveCandidate;
 import de.tudarmstadt.ukp.dkpro.wsd.resource.WSDResourceCollectiveCandidate;
-import edu.upf.taln.uima.wsd.si.babelnet.resource.BabelnetSenseInventoryResource;
+//import edu.upf.taln.uima.wsd.si.babelnet.resource.BabelnetSenseInventoryResource;
 
 public class TALNSenseBaselineTest {
 
-    @Test
+    /*@Test
     public void test() throws Exception {
 
     	CollectionReaderDescription reader = CollectionReaderFactory.createReaderDescription(
@@ -70,5 +70,5 @@ public class TALNSenseBaselineTest {
 
 		
 		SimplePipeline.runPipeline(reader, mfsBaselineBabelNet, writer);
-    }
+    }*/
 }
