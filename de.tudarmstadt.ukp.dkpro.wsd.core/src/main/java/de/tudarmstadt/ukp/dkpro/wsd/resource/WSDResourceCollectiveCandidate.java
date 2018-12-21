@@ -23,8 +23,8 @@ import de.tudarmstadt.ukp.dkpro.wsd.algorithm.WSDAlgorithmCollectivePOS;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
 import edu.upf.taln.textplanning.core.corpora.CompactFrequencies;
-//import edu.upf.taln.textplanning.core.similarity.RandomAccessVectorsSimilarity;
 import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
+import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
 import edu.upf.taln.textplanning.common.Serializer;
 import edu.upf.taln.textplanning.core.weighting.TFIDF;
 import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
@@ -32,6 +32,7 @@ import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.resource.ResourceInitializationException;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Map;
 
@@ -63,7 +64,7 @@ public class WSDResourceCollectiveCandidate
 		{
 			CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
 			this.weightingFunction = new TFIDF(corpus, i -> true);
-			//this.similarityFunction = RandomAccessVectorsSimilarity.create(new File(similaritiesFile).toPath());
+			this.similarityFunction = SimilarityFunctionFactory.get(Paths.get(similaritiesFile), SimilarityFunctionFactory.Format.Binary_RandomAccess);
 		}
 		catch (Exception e)
 		{
