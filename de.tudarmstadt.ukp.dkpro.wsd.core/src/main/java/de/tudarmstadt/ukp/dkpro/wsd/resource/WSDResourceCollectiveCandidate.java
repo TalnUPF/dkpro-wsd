@@ -27,6 +27,7 @@ import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
 import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
 import edu.upf.taln.textplanning.common.Serializer;
 import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
+import edu.upf.taln.textplanning.core.weighting.NoWeights;
 import edu.upf.taln.textplanning.core.weighting.TFIDF;
 import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
@@ -63,8 +64,7 @@ public class WSDResourceCollectiveCandidate
 
 		try
 		{
-			CompactFrequencies corpus = (CompactFrequencies) Serializer.deserialize(new File(frequenciesFile).toPath());
-			this.weightingFunction = new TFIDF(corpus, i -> true);
+			this.weightingFunction = new NoWeights();
 			this.similarityFunction = SimilarityFunctionFactory.get(Paths.get(similaritiesFile), SimilarityFunctionFactory.Format.Binary_RandomAccess);
 		}
 		catch (Exception e)

@@ -84,23 +84,14 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 
 			for (String sense : inventory.getSenses(sod, wsdPos))
 			{
-				Meaning meaning;
-				/*try
-				{
-					BabelnetSenseInventoryResource bnir = (BabelnetSenseInventoryResource) inventory;
-					BabelnetSenseInventory bni = bnir.getInventory();
-					BabelSynset synset = bni.getUnderlyingResource().getSynset(new BabelSynsetID(sense));
-					String label = synset.getSenses(Language.EN).iterator().next().toString();
-					boolean isNameEntiry = synset.getSynsetType() == BabelSynsetType.NAMED_ENTITY;
+//					BabelnetSenseInventoryResource bnir = (BabelnetSenseInventoryResource) inventory;
+//					BabelnetSenseInventory bni = bnir.getInventory();
+//					BabelSynset synset = bni.getUnderlyingResource().getSynset(new BabelSynsetID(sense));
+//					String label = synset.getSenses(Language.EN).iterator().next().toString();
+//					boolean isNameEntiry = synset.getSynsetType() == BabelSynsetType.NAMED_ENTITY;
+//					meaning = Meaning.get(sense, label, isNameEntiry);
 
-					meaning = Meaning.get(sense, label, isNameEntiry);
-				}
-				catch (IOException | InvalidBabelSynsetIDException | ClassCastException e)
-				{
-					e.printStackTrace();*/
-					meaning = Meaning.get(sense, sense, false);
-				//}
-
+				Meaning meaning = Meaning.get(sense, inventory.getSenseDescription(sense), false);
 				Candidate candidate = new Candidate(meaning, mention);
 				candidates.add(candidate);
 			}
