@@ -24,6 +24,7 @@ import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
 import edu.upf.taln.textplanning.core.corpora.CompactFrequencies;
 import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
+import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
 import edu.upf.taln.textplanning.common.Serializer;
 import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
 import edu.upf.taln.textplanning.core.weighting.TFIDF;
