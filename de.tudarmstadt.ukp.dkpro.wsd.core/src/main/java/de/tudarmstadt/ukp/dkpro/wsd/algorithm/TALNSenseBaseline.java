@@ -18,7 +18,6 @@
 
 package de.tudarmstadt.ukp.dkpro.wsd.algorithm;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -84,13 +83,6 @@ public class TALNSenseBaseline extends AbstractWSDAlgorithm	implements WSDAlgori
 
 			for (String sense : inventory.getSenses(sod, wsdPos))
 			{
-//					BabelnetSenseInventoryResource bnir = (BabelnetSenseInventoryResource) inventory;
-//					BabelnetSenseInventory bni = bnir.getInventory();
-//					BabelSynset synset = bni.getUnderlyingResource().getSynset(new BabelSynsetID(sense));
-//					String label = synset.getSenses(Language.EN).iterator().next().toString();
-//					boolean isNameEntiry = synset.getSynsetType() == BabelSynsetType.NAMED_ENTITY;
-//					meaning = Meaning.get(sense, label, isNameEntiry);
-
 				Meaning meaning = Meaning.get(sense, inventory.getSenseDescription(sense), false);
 				Candidate candidate = new Candidate(meaning, mention);
 				candidates.add(candidate);

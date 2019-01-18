@@ -22,18 +22,13 @@ import de.tudarmstadt.ukp.dkpro.wsd.algorithm.WSDAlgorithmCollectiveCandidate;
 import de.tudarmstadt.ukp.dkpro.wsd.algorithm.WSDAlgorithmCollectivePOS;
 import de.tudarmstadt.ukp.dkpro.wsd.si.SenseInventoryException;
 import de.tudarmstadt.ukp.dkpro.wsd.type.WSDItem;
-import edu.upf.taln.textplanning.core.corpora.CompactFrequencies;
 import edu.upf.taln.textplanning.core.similarity.SimilarityFunction;
 import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
-import edu.upf.taln.textplanning.common.Serializer;
-import edu.upf.taln.textplanning.core.similarity.vectors.SimilarityFunctionFactory;
 import edu.upf.taln.textplanning.core.weighting.NoWeights;
-import edu.upf.taln.textplanning.core.weighting.TFIDF;
 import edu.upf.taln.textplanning.core.weighting.WeightingFunction;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.resource.ResourceInitializationException;
 
-import java.io.File;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Map;
@@ -48,9 +43,6 @@ public class WSDResourceCollectiveCandidate
     extends WSDResourceBasic
     implements WSDAlgorithmCollectiveCandidate
 {
-	public final static String PARAM_FREQUENCIES_FILE = "frequenciesFile";
-	@ConfigurationParameter(name = PARAM_FREQUENCIES_FILE, mandatory = true, description = "")
-	private String frequenciesFile;
 	public final static String PARAM_SIMILARITIES_FILE = "similaritiesFile";
 	@ConfigurationParameter(name = PARAM_SIMILARITIES_FILE, mandatory = true, description = "")
 	private String similaritiesFile;
